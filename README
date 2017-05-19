@@ -1,13 +1,6 @@
+Make requires all .cpp files to be in src/ and must be accompanied by .h except main.cpp, else it shall raise Warning.
 
-Use this command to complile single file version:
-
-g++ jitd.cpp -o jitd
-
-OR
-
-Use this command to complile single multi-file version:
-
-g++ -I include/ -I src/ src/*.cpp -o jitd
+Use make
 
 then execute:
 

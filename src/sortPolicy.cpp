@@ -1,3 +1,6 @@
+#ifndef SORTPOLICY_CPP_
+#define SORTPOLICY_CPP_
+
 #include "sortPolicy.h"
 #include <vector>
 #include "cog.h"
@@ -24,3 +27,5 @@ void sortPolicy<T>::beforeIterator (cog* &node){
 				}
 	}
 }
+
+#endif /* SORTPOLICY_CPP_ */

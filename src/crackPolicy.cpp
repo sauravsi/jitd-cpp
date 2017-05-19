@@ -1,3 +1,6 @@
+#ifndef CRACKPOLICY_CPP_
+#define CRACKPOLICY_CPP_
+
 #include "crackPolicy.h"
 #include <vector>
 #include "cog.h"
@@ -69,3 +72,5 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 				}
 	}
 }
+
+#endif /* CRACKPOLICY_CPP_ */

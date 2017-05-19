@@ -1,13 +1,9 @@
 #include <iostream>
 #include <vector>
-#include "cog.h"
-#include "cogTypes.h"
-#include "policy.h"
-#include "policy.cpp"
-#include "crackPolicy.h"
-#include "crackPolicy.cpp"
 #include "jitd.h"
 #include "jitd.cpp"
+#include "crackPolicy.h"
+#include "crackPolicy.cpp"
 
 using namespace std;
 

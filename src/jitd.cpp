@@ -1,3 +1,6 @@
+#ifndef JITD_CPP_
+#define JITD_CPP_
+
 #include "jitd.h"
 #include <vector>
 #include "cog.h"
@@ -98,3 +101,5 @@ vector<T> jitd<T>::scan(cog* node, T low, T high){
 				}
 	}
 }
+
+#endif /* JITD_CPP_ */
