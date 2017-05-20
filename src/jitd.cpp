@@ -30,6 +30,7 @@ void jitd<T>::insert(T* data, int size){
 	}
 	else {
 		cog* concatnode = new concatNode(arraynode, root);
+		concatnode->setReadcount(root->getReadcount());
 		root = concatnode;
 	}
 	p->afterInsert(root);

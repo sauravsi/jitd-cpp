@@ -2,16 +2,7 @@
 #include <vector>
 #include "jitd.h"
 #include "jitd.cpp"
-#include "policy.h"
-#include "policy.cpp"
-#include "crackPolicy.h"
-#include "crackPolicy.cpp"
-#include "sortPolicy.h"
-#include "sortPolicy.cpp"
-#include "splayPolicy.h"
-#include "splayPolicy.cpp"
-#include "hybridPolicy.h"
-#include "hybridPolicy.cpp"
+#include "policyTypes.h"
 #include "cogTypes.h"
 
 using namespace std;

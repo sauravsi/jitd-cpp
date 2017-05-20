@@ -4,13 +4,13 @@
 class cog {
 	protected:
 		const int type;
-		int readcount;
+		unsigned int readcount;
 	public:
 		cog (int t);
-		cog (int t, int r);
+		cog (int t, unsigned int r);
 		const int getType();
-		int getReadcount();
-		void setReadcount(int x);
+		unsigned int getReadcount();
+		void setReadcount(unsigned int x);
 };
 
 #endif /* COG_H_ */
