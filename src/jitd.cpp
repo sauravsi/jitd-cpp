@@ -38,7 +38,8 @@ void jitd<T>::insert(T* data, int size){
 template <class T>
 vector<T> jitd<T>::scan(T low, T high){
 	p->beforeRootIterator(root);
-	return scan(root, low, high);
+	vector<T> result = scan(root, low, high);
+	return result;
 }
 
 template <class T>
@@ -70,12 +71,14 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 		case BTREE:{
 					T k = ((btreeNode<T>*)node)->getKey();
 					if(high <= k){
-						node->setReadcount(node->getReadcount()+1);
-						return scan(((btreeNode<T>*)node)->left, low, high);
+						vector<T> result = scan(((btreeNode<T>*)node)->left, low, high);
+						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
+						return result;
 					}
 					else if(low > k){
-						node->setReadcount(node->getReadcount()+1);
-						return scan(((btreeNode<T>*)node)->right, low, high);
+						vector<T> result = scan(((btreeNode<T>*)node)->right, low, high);
+						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
+						return result;
 					}
 					else{
 						vector<T> l = scan(((btreeNode<T>*)node)->left, low, high);
@@ -87,7 +90,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 						for (int i = 0; i < r.size(); i++){
 							result.push_back(r[i]);
 						}
-						node->setReadcount(node->getReadcount()+2);
+						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
 						return result;
 					}
 				}
@@ -101,7 +104,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 					for (int i = 0; i < r.size(); i++){
 						result.push_back(r[i]);
 					}
-					node->setReadcount(node->getReadcount()+2);
+					node->setReadcount(((concatNode*)node)->left->getReadcount()+((concatNode*)node)->right->getReadcount());
 					return result;
 				}
 	}

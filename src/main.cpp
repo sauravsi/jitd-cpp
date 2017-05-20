@@ -59,18 +59,21 @@ int main() {
 	policies.push_back(p3);
 	hybridPolicy<int>* p = new hybridPolicy<int>(policies);
 	jitd<int> myJitd(p);
-	int list[] = {5,2,7,3,9,4,2,3,5,7,8,9,0,3,343,54,232,5452};
+	int list[] = {5,2,7,3,9,4,2,3,5,7,8,9,0};
 	myJitd.insert(list, (sizeof(list)/sizeof(int)));
-	vector<int> result = myJitd.scan(3,5);
-    for(int i = 0; i<result.size(); i++){
-        cout << result[i] << endl;
-    }
+	
+	cout << "scan(3,4)" << endl;
+    vector<int> result = myJitd.scan(3,5);
     printTree(myJitd.getRoot(),0);
+    
+    cout << "scan(5,6)" << endl;
     result = myJitd.scan(5,70);
-    for(int i = 0; i<result.size(); i++){
-        cout << result[i] << endl;
-    }
     printTree(myJitd.getRoot(),0);
+
+    cout << "scan(3,4)" << endl;
+    result = myJitd.scan(4,11);
+    printTree(myJitd.getRoot(),0);
+
 
 
     return 0;
