@@ -17,3 +17,11 @@ cog* concatNode::getLeft(){
 cog* concatNode::getRight(){
 	return right;
 }
+
+void concatNode::setLeft(cog* l){
+	left = l;
+}
+
+void concatNode::setRight(cog* r){
+	right = r;
+}

@@ -3,8 +3,10 @@
 
 #include "arrayNode.h"
 #include <vector>
+#include <string.h>
 #include "cog.h"
 #include "cogTypes.h"
+#include "itoa.h"
 
 using namespace std;
 

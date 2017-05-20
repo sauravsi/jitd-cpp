@@ -4,13 +4,14 @@
 #include "cog.h"
 
 class concatNode: public cog {
-	private:
+	public:
 		cog* left;
 		cog* right;
-	public:
 		concatNode( cog* l, cog* r );
 		cog* getLeft();
 		cog* getRight();
+		void setLeft(cog* l);
+		void setRight(cog* r);
 };
 
 #endif /* CONCATNODE_H_ */

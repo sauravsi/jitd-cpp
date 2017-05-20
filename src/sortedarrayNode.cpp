@@ -5,6 +5,7 @@
 #include <vector>
 #include "cog.h"
 #include "cogTypes.h"
+#include "itoa.h"
 
 using namespace std;
 

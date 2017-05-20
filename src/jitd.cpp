@@ -42,41 +42,44 @@ vector<T> jitd<T>::scan(T low, T high){
 }
 
 template <class T>
-vector<T> jitd<T>::scan(cog* node, T low, T high){
-	cog* it = node;
-	p->beforeIterator(it);
-	switch(it->getType()){
+vector<T> jitd<T>::scan(cog* &node, T low, T high){
+	p->beforeIterator(node);
+	switch(node->getType()){
 		case ARRAY:{
-					vector<T> data = ((arrayNode<T>*)it)->getData();
+					vector<T> data = ((arrayNode<T>*)node)->getData();
 					vector<T> result;
 					for(int i = 0; i < data.size(); i++){
 						if(data[i] >= low && data[i] < high){
 							result.push_back(data[i]);
 						}
 					}
+					node->setReadcount(node->getReadcount()+1);
 					return result;
 				}
 		case SORTED_ARRAY:{
-					vector<T> data = ((sortedarrayNode<T>*)it)->getData();
+					vector<T> data = ((sortedarrayNode<T>*)node)->getData();
 					vector<T> result;
 					for(int i = 0; i < data.size(); i++){
 						if(data[i] >= low && data[i] < high){
 							result.push_back(data[i]);
 						}
 					}
+					node->setReadcount(node->getReadcount()+1);
 					return result;
 				}
 		case BTREE:{
-					T k = ((btreeNode<T>*)it)->getKey();
+					T k = ((btreeNode<T>*)node)->getKey();
 					if(high <= k){
-						return scan(((btreeNode<T>*)it)->getLeft(), low, high);
+						node->setReadcount(node->getReadcount()+1);
+						return scan(((btreeNode<T>*)node)->left, low, high);
 					}
 					else if(low > k){
-						return scan(((btreeNode<T>*)it)->getRight(), low, high);
+						node->setReadcount(node->getReadcount()+1);
+						return scan(((btreeNode<T>*)node)->right, low, high);
 					}
 					else{
-						vector<T> l = scan(((btreeNode<T>*)it)->getLeft(), low, high);
-						vector<T> r = scan(((btreeNode<T>*)it)->getRight(), low, high);
+						vector<T> l = scan(((btreeNode<T>*)node)->left, low, high);
+						vector<T> r = scan(((btreeNode<T>*)node)->right, low, high);
 						vector<T> result;
 						for (int i = 0; i < l.size(); i++){
 							result.push_back(l[i]);
@@ -84,12 +87,13 @@ vector<T> jitd<T>::scan(cog* node, T low, T high){
 						for (int i = 0; i < r.size(); i++){
 							result.push_back(r[i]);
 						}
+						node->setReadcount(node->getReadcount()+2);
 						return result;
 					}
 				}
 		case CONCAT:{
-					vector<T> l = scan(((concatNode*)it)->getLeft(), low, high);
-					vector<T> r = scan(((concatNode*)it)->getRight(), low, high);
+					vector<T> l = scan(((concatNode*)node)->left, low, high);
+					vector<T> r = scan(((concatNode*)node)->right, low, high);
 					vector<T> result;
 					for (int i = 0; i < l.size(); i++){
 						result.push_back(l[i]);
@@ -97,9 +101,9 @@ vector<T> jitd<T>::scan(cog* node, T low, T high){
 					for (int i = 0; i < r.size(); i++){
 						result.push_back(r[i]);
 					}
+					node->setReadcount(node->getReadcount()+2);
 					return result;
 				}
 	}
 }
-
 #endif /* JITD_CPP_ */

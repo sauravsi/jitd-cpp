@@ -7,9 +7,9 @@ template <class T>
 class btreeNode: public cog {
 	private:
 		const T key;
+	public:
 		cog* left;
 		cog* right;
-	public:
 		btreeNode( T k, cog* l, cog* r );
 		const T getKey();
 		cog* getLeft();
