@@ -2,8 +2,16 @@
 #include <vector>
 #include "jitd.h"
 #include "jitd.cpp"
+#include "policy.h"
+#include "policy.cpp"
 #include "crackPolicy.h"
 #include "crackPolicy.cpp"
+#include "sortPolicy.h"
+#include "sortPolicy.cpp"
+#include "splayPolicy.h"
+#include "splayPolicy.cpp"
+#include "hybridPolicy.h"
+#include "hybridPolicy.cpp"
 #include "cogTypes.h"
 
 using namespace std;
@@ -42,7 +50,14 @@ void printTree(cog* it,int depth){
 }
 
 int main() {
-	crackPolicy<int>* p = new crackPolicy<int>(3);
+	policy<int>* p1 = new crackPolicy<int>(3);
+	policy<int>* p2 = new sortPolicy<int>();
+	policy<int>* p3 = new splayPolicy<int>();
+	vector<policy<int>* > policies;
+	policies.push_back(p1);
+	policies.push_back(p2);
+	policies.push_back(p3);
+	hybridPolicy<int>* p = new hybridPolicy<int>(policies);
 	jitd<int> myJitd(p);
 	int list[] = {5,2,7,3,9,4,2,3,5,7,8,9,0,3,343,54,232,5452};
 	myJitd.insert(list, (sizeof(list)/sizeof(int)));

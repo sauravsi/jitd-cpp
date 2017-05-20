@@ -17,7 +17,7 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 	switch(node->getType()){
 		case BTREE:{
 					if(((btreeNode<T>*)node)->getLeft()->getReadcount() >= (2/3)*node->getReadcount() && ((btreeNode<T>*)node)->getLeft()->getType() == BTREE){
-						btreeNode<T>* lhs = ((btreeNode<T>*)node)->getLeft();
+						btreeNode<T>* lhs = ((btreeNode<T>*)((btreeNode<T>*)node)->getLeft());
 						cog* a = lhs->getLeft();
 						cog* b = lhs->getRight();
 						cog* c = ((btreeNode<T>*)node)->getRight();
@@ -27,7 +27,7 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 						node->setReadcount(newR->getReadcount()+a->getReadcount());
 					}
 					else if(((btreeNode<T>*)node)->getRight()->getReadcount() >= (2/3)*node->getReadcount() && ((btreeNode<T>*)node)->getRight()->getType() == BTREE){
-						btreeNode<T>* rhs = ((btreeNode<T>*)node)->getRight();
+						btreeNode<T>* rhs = ((btreeNode<T>*)((btreeNode<T>*)node)->getRight());
 						cog* a = ((btreeNode<T>*)node)->getLeft();
 						cog* b = rhs->getLeft();
 						cog* c = rhs->getRight();
