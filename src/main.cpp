@@ -9,18 +9,30 @@ using namespace std;
 
 void printTree(cog* it,int depth){
 	switch(it->getType()){
-		case ARRAY:
-			for (int i = 0; i < depth; ++i){
-				cout << "\t";
+		case ARRAY:{
+				for (int i = 0; i < depth; ++i){
+					cout << "\t";
+				}
+				vector<int> arrdata = ((arrayNode<int>*)it)->getData();
+				cout << "(" << it->getReadcount() << ")" << "ARRAY:" << ((arrayNode<int>*)it)->getSize() << "{" << arrdata[0];
+				for (int i = 1; i < arrdata.size(); ++i){
+					cout << "," << arrdata[i];
+				}
+				cout << "}" << endl;
+				return;
 			}
-			cout << "(" << it->getReadcount() << ")" << "ARRAY:" << ((arrayNode<int>*)it)->getSize() << endl;
-			return;
-		case SORTED_ARRAY:
-			for (int i = 0; i < depth; ++i){
-				cout << "\t";
+		case SORTED_ARRAY:{
+				for (int i = 0; i < depth; ++i){
+					cout << "\t";
+				}
+				vector<int> arrdata = ((sortedarrayNode<int>*)it)->getData();
+				cout << "(" << it->getReadcount() << ")" << "SORTED_ARRAY:" << ((sortedarrayNode<int>*)it)->getSize() << "{" << arrdata[0];
+				for (int i = 1; i < arrdata.size(); ++i){
+					cout << "," << arrdata[i];
+				}
+				cout << "}" << endl;
+				return;
 			}
-			cout << "(" << it->getReadcount() << ")" << "SORTED_ARRAY:" << ((sortedarrayNode<int>*)it)->getSize() << endl;
-			return;
 		case BTREE:
 			printTree(((btreeNode<int>*)it)->left, depth+1);
 			for (int i = 0; i < depth; ++i){
@@ -54,18 +66,20 @@ int main() {
 	myJitd.insert(list, (sizeof(list)/sizeof(int)));
 	
 	cout << "scan(3,4)" << endl;
-    vector<int> result = myJitd.scan(3,5);
+    vector<int> result = myJitd.scan(3,4);
     printTree(myJitd.getRoot(),0);
     
     cout << "scan(5,6)" << endl;
-    result = myJitd.scan(5,70);
+    result = myJitd.scan(5,6);
     printTree(myJitd.getRoot(),0);
 
     cout << "scan(3,4)" << endl;
-    result = myJitd.scan(4,11);
+    result = myJitd.scan(3,4);
     printTree(myJitd.getRoot(),0);
 
-
+    // for (int i = 0; i < result.size(); ++i){
+    // 	cout << result[i] << endl;
+    // }
 
     return 0;
 }

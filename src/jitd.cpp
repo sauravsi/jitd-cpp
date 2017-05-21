@@ -38,6 +38,11 @@ void jitd<T>::insert(T* data, int size){
 
 template <class T>
 vector<T> jitd<T>::scan(T low, T high){
+	if(high < low){
+		T temp = low;
+		low = high;
+		high = temp;
+	}
 	p->beforeRootIterator(root);
 	vector<T> result = scan(root, low, high);
 	return result;
@@ -51,7 +56,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 					vector<T> data = ((arrayNode<T>*)node)->getData();
 					vector<T> result;
 					for(int i = 0; i < data.size(); i++){
-						if(data[i] >= low && data[i] < high){
+						if((data[i] >= low && data[i] < high)||( data[i]==low && low == high )){
 							result.push_back(data[i]);
 						}
 					}
@@ -62,7 +67,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 					vector<T> data = ((sortedarrayNode<T>*)node)->getData();
 					vector<T> result;
 					for(int i = 0; i < data.size(); i++){
-						if(data[i] >= low && data[i] < high){
+						if((data[i] >= low && data[i] < high)||( data[i]==low && low == high )){
 							result.push_back(data[i]);
 						}
 					}
@@ -71,17 +76,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 				}
 		case BTREE:{
 					T k = ((btreeNode<T>*)node)->getKey();
-					if(high <= k){
-						vector<T> result = scan(((btreeNode<T>*)node)->left, low, high);
-						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
-						return result;
-					}
-					else if(low > k){
-						vector<T> result = scan(((btreeNode<T>*)node)->right, low, high);
-						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
-						return result;
-					}
-					else{
+					if(k < high && low <= k){
 						vector<T> l = scan(((btreeNode<T>*)node)->left, low, high);
 						vector<T> r = scan(((btreeNode<T>*)node)->right, low, high);
 						vector<T> result;
@@ -91,6 +86,16 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 						for (int i = 0; i < r.size(); i++){
 							result.push_back(r[i]);
 						}
+						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
+						return result;
+					}
+					else if(low > k){
+						vector<T> result = scan(((btreeNode<T>*)node)->right, low, high);
+						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
+						return result;
+					}
+					else{
+						vector<T> result = scan(((btreeNode<T>*)node)->left, low, high);
 						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
 						return result;
 					}
