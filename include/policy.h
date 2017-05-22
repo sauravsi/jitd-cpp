@@ -12,6 +12,7 @@ class policy {
 		virtual void afterDelete (cog* &root);
 		virtual void beforeRootIterator (cog* &root);
 		virtual void beforeIterator	(cog* &node);
+		virtual void afterIterator	(cog* &node);
 		virtual void idle (cog* &root);
 };
 

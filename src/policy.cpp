@@ -25,6 +25,9 @@ template <class T>
 void policy<T>::beforeIterator	(cog* &node){}
 
 template <class T>
+void policy<T>::afterIterator	(cog* &node){}
+
+template <class T>
 void policy<T>::idle (cog* &root){}
 
 #endif // POLICY_CPP_

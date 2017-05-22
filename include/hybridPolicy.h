@@ -20,6 +20,7 @@ class hybridPolicy: public policy<T> {
 		void afterDelete (cog* &node);
 		void beforeRootIterator (cog* &node);
 		void beforeIterator	(cog* &node);
+		void afterIterator	(cog* &node);
 		void idle (cog* &node);
 };
 

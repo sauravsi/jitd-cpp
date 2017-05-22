@@ -48,6 +48,12 @@ void hybridPolicy<T>::beforeIterator	(cog* &node){
 	}
 }
 template <class T>
+void hybridPolicy<T>::afterIterator	(cog* &node){
+	for(int it = 0; it < policies.size(); it++){
+		policies[it]->afterIterator(node);
+	}
+}
+template <class T>
 void hybridPolicy<T>::idle (cog* &node){
 	for(int it = 0; it < policies.size(); it++){
 		policies[it]->idle(node);

@@ -13,6 +13,12 @@ template <class T>
 splayPolicy<T>::splayPolicy(){}
 
 template <class T>
+void splayPolicy<T>::afterInsert (cog* &node){
+	if(node->getType() == CONCAT)
+		node->setReadcount(((concatNode*)node)->getLeft()->getReadcount()+((concatNode*)node)->getRight()->getReadcount());
+}
+
+template <class T>
 void splayPolicy<T>::beforeIterator (cog* &node){
 	switch(node->getType()){
 		case BTREE:{
@@ -39,6 +45,23 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 					return;
 				}
 	}
+}
+
+template <class T>
+void splayPolicy<T>::afterIterator (cog* &node){
+	//node->setReadcount(node->getReadcount()+1);
+	switch(node->getType()){
+		case ARRAY:
+		case SORTED_ARRAY:
+			node->setReadcount(node->getReadcount()+1);
+			return;
+		case CONCAT:
+			node->setReadcount(((concatNode*)node)->getLeft()->getReadcount()+((concatNode*)node)->getRight()->getReadcount());
+			return;
+		case BTREE:
+			node->setReadcount(((btreeNode<T>*)node)->getLeft()->getReadcount()+((btreeNode<T>*)node)->getRight()->getReadcount());
+			return;
+		}
 }
 
 #endif /* SPLAYPOLICY_CPP_ */

@@ -30,7 +30,6 @@ void jitd<T>::insert(T* data, int size){
 	}
 	else {
 		cog* concatnode = new concatNode(arraynode, root);
-		concatnode->setReadcount(root->getReadcount());
 		root = concatnode;
 	}
 	p->afterInsert(root);
@@ -60,7 +59,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 							result.push_back(data[i]);
 						}
 					}
-					node->setReadcount(node->getReadcount()+1);
+					p->afterIterator(node);
 					return result;
 				}
 		case SORTED_ARRAY:{
@@ -71,7 +70,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 							result.push_back(data[i]);
 						}
 					}
-					node->setReadcount(node->getReadcount()+1);
+					p->afterIterator(node);
 					return result;
 				}
 		case BTREE:{
@@ -86,17 +85,17 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 						for (int i = 0; i < r.size(); i++){
 							result.push_back(r[i]);
 						}
-						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
+						p->afterIterator(node);
 						return result;
 					}
 					else if(low > k){
 						vector<T> result = scan(((btreeNode<T>*)node)->right, low, high);
-						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
+						p->afterIterator(node);
 						return result;
 					}
 					else{
 						vector<T> result = scan(((btreeNode<T>*)node)->left, low, high);
-						node->setReadcount(((btreeNode<T>*)node)->left->getReadcount()+((btreeNode<T>*)node)->right->getReadcount());
+						p->afterIterator(node);
 						return result;
 					}
 				}
@@ -110,7 +109,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 					for (int i = 0; i < r.size(); i++){
 						result.push_back(r[i]);
 					}
-					node->setReadcount(((concatNode*)node)->left->getReadcount()+((concatNode*)node)->right->getReadcount());
+					p->afterIterator(node);
 					return result;
 				}
 	}
