@@ -1,7 +1,11 @@
 #ifndef POLICY_H_
 #define POLICY_H_
 
+#ifdef READCOUNT
 #include "cog.h"
+#else
+#include "cogWithoutRead.h"
+#endif
 
 template <class T>
 class policy {

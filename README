@@ -5,3 +5,8 @@ Use make
 then execute:
 
 ./jitd
+
+output tree description:
+						<\t>							<Left Child Cog>
+ (<read count of cog>)<type of cog>:<key or size> {
+ 						<\t>							<Right Child Cog>

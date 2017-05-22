@@ -2,7 +2,7 @@
 #define JITD_H_
 
 #include <vector>
-#include "cog.h"
+
 #include "policy.h"
 #include "policy.cpp"
 
