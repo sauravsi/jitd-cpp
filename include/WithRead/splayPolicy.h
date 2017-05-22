@@ -1,6 +1,7 @@
 #ifndef SPLAYPOLICY_H_
 #ifdef READCOUNT
 #define SPLAYPOLICY_H_
+#define READCOUNT
 
 #include "cog.h"
 #include "policy.h"

@@ -5,12 +5,6 @@
 #include "crackPolicy.cpp"
 #include "sortPolicy.h"
 #include "sortPolicy.cpp"
-
-#ifdef READCOUNT
-#include "splayPolicy.h"
-#include "splayPolicy.cpp"
-#endif
-
 #include "hybridPolicy.h"
 #include "hybridPolicy.cpp"
 

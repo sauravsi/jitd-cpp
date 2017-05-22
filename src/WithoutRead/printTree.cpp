@@ -12,9 +12,6 @@ void printTree(cog* it,int depth){
 					cout << "\t";
 				}
 				vector<int> arrdata = ((arrayNode<int>*)it)->getData();
-				#ifdef READCOUNT
-					cout << "(" << it->getReadcount() << ")" ;
-				#endif
 				cout << "ARRAY:" << ((arrayNode<int>*)it)->getSize() << "{" << arrdata[0];
 				for (int i = 1; i < arrdata.size(); ++i){
 					cout << "," << arrdata[i];
@@ -27,9 +24,6 @@ void printTree(cog* it,int depth){
 					cout << "\t";
 				}
 				vector<int> arrdata = ((sortedarrayNode<int>*)it)->getData();
-				#ifdef READCOUNT
-					cout << "(" << it->getReadcount() << ")" ;
-				#endif
 				cout << "SORTED_ARRAY:" << ((sortedarrayNode<int>*)it)->getSize() << "{" << arrdata[0];
 				for (int i = 1; i < arrdata.size(); ++i){
 					cout << "," << arrdata[i];
@@ -42,9 +36,6 @@ void printTree(cog* it,int depth){
 			for (int i = 0; i < depth; ++i){
 				cout << "\t";
 			}
-			#ifdef READCOUNT
-				cout << "(" << it->getReadcount() << ")" ;
-			#endif
 			cout << "BTREE:" << ((btreeNode<int>*)it)->getKey() << "{" << endl;
 			printTree(((btreeNode<int>*)it)->right, depth+1);
 			return;
@@ -53,9 +44,6 @@ void printTree(cog* it,int depth){
 			for (int i = 0; i < depth; ++i){
 				cout << "\t";
 			}
-			#ifdef READCOUNT
-				cout << "(" << it->getReadcount() << ")" ;
-			#endif
 			cout << "CONCAT:" << "{" <<  endl;
 			printTree(((btreeNode<int>*)it)->right, depth+1);
 			return;

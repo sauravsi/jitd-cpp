@@ -1,6 +1,7 @@
 #ifndef SPLAYPOLICY_CPP_
-#ifdef READCOUNT
+#ifndef READCOUNT
 #define SPLAYPOLICY_CPP_
+#define READCOUNT
 
 #include "splayPolicy.h"
 #include <vector>
