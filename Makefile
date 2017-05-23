@@ -1,36 +1,26 @@
-CC = g++ -w
-INC = include/
-SRC = src/
-BIN = bin/
+CC := g++ -w
+INC := include/
+SRC := src/
+BIN := bin/
 
-FILES := $(wildcard $(SRC)*.cpp)
-OBJECTS := $(addprefix $(BIN),$(addsuffix .o, $(basename $(notdir $(FILES)))))
+TARGET1 := jitd_read
+TARGET2 := jitd_noread
 
-TARGET = jitd
+WOR := WithoutRead/
+WR := WithRead/
 
-INCLUDES = -I $(INC) -I $(SRC)
+all: read noread
 
-all: $(BIN) $(TARGET)
+read: $(TARGET1)
 
-#create binary folder
-$(BIN):
-	@mkdir $@
+noread: $(TARGET2)
 
-#create executable
-$(TARGET): $(OBJECTS)
-	$(CC) $^ -o $@
+$(TARGET1): $(WOROBJECTS) 
+	@cd $(SRC)$(WR) && $(MAKE)
 
-#create objects
-$(BIN)main.o: $(SRC)main.cpp
-	$(CC) -c $(INCLUDES) $^ -o $@
+$(TARGET2): $(WROBJECTS)
+	@cd $(SRC)$(WOR) && $(MAKE)
 
-$(BIN)%.o: $(SRC)%.cpp $(INC)%.h
-	$(CC) -c $(INCLUDES) $< -o $@
-
-#raise warning for missing header
-$(INC)%.h:
-	@echo "Warning no header for "$*.cpp
-
-#delete binaries and executable
 clean:
-	@rm -rf $(BIN) $(TARGET)
+	@cd $(SRC)$(WR) && $(MAKE) clean 
+	@cd $(SRC)$(WOR) && $(MAKE) clean

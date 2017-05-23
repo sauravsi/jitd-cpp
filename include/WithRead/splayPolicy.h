@@ -1,5 +1,7 @@
 #ifndef SPLAYPOLICY_H_
+#ifdef READCOUNT
 #define SPLAYPOLICY_H_
+#define READCOUNT
 
 #include "cog.h"
 #include "policy.h"
@@ -14,4 +16,5 @@ class splayPolicy: public policy<T> {
 		void afterIterator	(cog* &node);
 };
 
+#endif
 #endif /* SPLAYPOLICY_H_ */

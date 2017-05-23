@@ -1,5 +1,7 @@
 #ifndef SPLAYPOLICY_CPP_
+#ifndef READCOUNT
 #define SPLAYPOLICY_CPP_
+#define READCOUNT
 
 #include "splayPolicy.h"
 #include <vector>
@@ -63,5 +65,7 @@ void splayPolicy<T>::afterIterator (cog* &node){
 			return;
 		}
 }
+
+#endif
 
 #endif /* SPLAYPOLICY_CPP_ */

@@ -5,8 +5,6 @@
 #include "crackPolicy.cpp"
 #include "sortPolicy.h"
 #include "sortPolicy.cpp"
-#include "splayPolicy.h"
-#include "splayPolicy.cpp"
 #include "hybridPolicy.h"
 #include "hybridPolicy.cpp"
 

@@ -1,7 +1,33 @@
-Make requires all .cpp files to be in src/ and must be accompanied by .h except main.cpp, else it shall raise Warning.
+Use one of the following scripts:
 
-Use make
+>	make read
 
-then execute:
+OR
 
-./jitd
+>	make noread
+
+OR
+
+>	make
+
+Then execute:
+
+>	./jitd_read
+
+output tree description for "read":
+						<\t>							<Left Child Cog>
+
+ (<read count of cog>)<type of cog>:<key or size> {
+ 						
+ 						<\t>							<Right Child Cog>
+
+OR
+
+>	./jitd_norad
+
+output tree description for "noread":
+		<\t>				<Left Child Cog>
+
+<type of cog>:<key or size> {
+
+ 		<\t>				<Right Child Cog>
