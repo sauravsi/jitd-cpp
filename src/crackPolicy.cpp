@@ -19,20 +19,22 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 						vector<T> data = ((arrayNode<T>*)node)->getData();
 						vector<T> left;
 						vector<T> right;
-						T min = data[0];
 						T max = data[0];
 						T key = data[0];
 						for(int i = 0; i < data.size(); i++){
-							if(data[i] <= min){
-								min = data[i];
-							}
-							else if(data[i] >= max){
+							if(max < data[i]){
+								key = max;
 								max = data[i];
+								break;
 							}
-							else {
+							else if(data[i] < max){
 								key = data[i];
 								break;
 							}
+						}
+
+						if(key == max){
+							return;
 						}
 
 						for (int i = 0; i < data.size(); i++){

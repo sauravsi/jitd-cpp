@@ -23,7 +23,7 @@ output tree description for "read":
 
 OR
 
->	./jitd_norad
+>	./jitd_noread
 
 output tree description for "noread":
 		<\t>				<Left Child Cog>

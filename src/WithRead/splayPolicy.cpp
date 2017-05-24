@@ -54,6 +54,8 @@ void splayPolicy<T>::afterIterator (cog* &node){
 	//node->setReadcount(node->getReadcount()+1);
 	switch(node->getType()){
 		case ARRAY:
+			node->setReadcount(node->getReadcount()+1);
+			return;
 		case SORTED_ARRAY:
 			node->setReadcount(node->getReadcount()+1);
 			return;

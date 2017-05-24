@@ -3,22 +3,15 @@ INC := include/
 SRC := src/
 BIN := bin/
 
-TARGET1 := jitd_read
-TARGET2 := jitd_noread
-
 WOR := WithoutRead/
 WR := WithRead/
 
 all: read noread
 
-read: $(TARGET1)
-
-noread: $(TARGET2)
-
-$(TARGET1): $(WOROBJECTS) 
+read:
 	@cd $(SRC)$(WR) && $(MAKE)
 
-$(TARGET2): $(WROBJECTS)
+noread:
 	@cd $(SRC)$(WOR) && $(MAKE)
 
 clean:

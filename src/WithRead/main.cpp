@@ -1,11 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <tuple>
 
 #include "jitd.h"
 #include "jitd.cpp"
 #include "policyTypes.h"
 #include "cogTypes.h"
 #include "printTree.h"
+#include "dataGenerator.h"
+#include "queryGenerator.h"
 
 #include "splayPolicy.h"
 #include "splayPolicy.cpp"
@@ -22,51 +25,32 @@ int main() {
 	policies.push_back(p3);
 	hybridPolicy<int>* p = new hybridPolicy<int>(policies);
 	jitd<int> myJitd(p);
-	int list[] = {5,2,7,3,9,4,2,3,5,7,8,9,0};
-	
+
+    int dataSeed = 80;
+    int dataMin = 0;
+    int dataMax = 9;
+    const int dataSize = 1000;
+
+    int list[dataSize] = {};
+    dataGenerator(dataSeed, dataMin, dataMax, list, dataSize);
+
+    int querySeed = 44;
+    int rangeSize = 3;
+    int queryCount = 1000;
+    double hhDataRange = 0.2;
+    double hhProbability = 0.8;
+
+    vector<tuple<int,int> > queries = queryGenerator(querySeed, queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
+
 	myJitd.insert(list, (sizeof(list)/sizeof(int)));
 	printTree(myJitd.getRoot(),0);
     
-	cout << "---scan(2,3)---" << endl;
-    vector<int> result = myJitd.scan(2,3);
+    for (int i = 0; i < queries.size(); ++i)
+    {
+        cout << "---scan(" << get<0>(queries[i]) << "," << get<1>(queries[i]) << ")---" << endl;
+        vector<int> result = myJitd.scan(get<0>(queries[i]), get<1>(queries[i]));
+    }
     printTree(myJitd.getRoot(),0);
-    
-    cout << "---scan(5,5)---" << endl;
-    result = myJitd.scan(5,5);
-    printTree(myJitd.getRoot(),0);
-
-    cout << "---scan(2,2)---" << endl;
-    result = myJitd.scan(2,2);
-    printTree(myJitd.getRoot(),0);
-
-    cout << "---scan(3,3)---" << endl;
-    result = myJitd.scan(3,3);
-    printTree(myJitd.getRoot(),0);
-    
-    cout << "---scan(3,3)---" << endl;
-    result = myJitd.scan(3,3);
-    printTree(myJitd.getRoot(),0);
-    
-    cout << "---scan(2,2)---" << endl;
-    result = myJitd.scan(2,2);
-    printTree(myJitd.getRoot(),0);
-    
-    cout << "---scan(2,3)---" << endl;
-    result = myJitd.scan(2,3);
-    printTree(myJitd.getRoot(),0);
-    
-    cout << "---scan(9,9)---" << endl;
-    result = myJitd.scan(9,9);
-    printTree(myJitd.getRoot(),0);
-
-    cout << "---scan(3,3)---" << endl;
-    result = myJitd.scan(3,3);
-    printTree(myJitd.getRoot(),0);
-    
-    cout << "---scan(2,2)---" << endl;
-    result = myJitd.scan(2,2);
-    printTree(myJitd.getRoot(),0);
-    
     // for (int i = 0; i < result.size(); ++i){
     // 	cout << result[i] << endl;
     // }
