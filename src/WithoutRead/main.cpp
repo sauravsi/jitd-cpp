@@ -6,9 +6,7 @@
 #include "jitd.cpp"
 #include "policyTypes.h"
 #include "cogTypes.h"
-#include "printTree.h"
-#include "dataGenerator.h"
-#include "queryGenerator.h"
+#include "tester.h"
 
 using namespace std;
 
@@ -24,10 +22,7 @@ int main() {
     int dataSeed = 80;
     int dataMin = 0;
     int dataMax = 9;
-    const int dataSize = 1000;
-
-    int list[dataSize] = {};
-    dataGenerator(dataSeed, dataMin, dataMax, list, dataSize);
+    int dataSize = 1000;
 
     int querySeed = 44;
     int rangeSize = 3;
@@ -35,17 +30,17 @@ int main() {
     double hhDataRange = 0.2;
     double hhProbability = 0.8;
 
-    vector<tuple<int,int> > queries = queryGenerator(querySeed, queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
-
-    myJitd.insert(list, (sizeof(list)/sizeof(int)));
-    printTree(myJitd.getRoot(),0);
-    
-    for (int i = 0; i < queries.size(); ++i)
-    {
-        cout << "---scan(" << get<0>(queries[i]) << "," << get<1>(queries[i]) << ")---" << endl;
-        vector<int> result = myJitd.scan(get<0>(queries[i]), get<1>(queries[i]));
+    tester myTester(dataSeed, querySeed, &myJitd);
+    myTester.insert(1, dataSize, dataMin, dataMax);
+    myTester.scan(queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
+    vector<unsigned int> runtimes = myTester.getRuntimes();
+    for (int i = 0; i < runtimes.size(); ++i){
+        cout << runtimes[i]<< ",";
     }
-    printTree(myJitd.getRoot(),0);
+
+    cout << endl;
+
+    // printTree(myJitd.getRoot(),0);
     // for (int i = 0; i < result.size(); ++i){
     //  cout << result[i] << endl;
     // }
