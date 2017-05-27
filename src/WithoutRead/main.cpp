@@ -32,7 +32,9 @@ int main() {
 
     tester myTester(dataSeed, querySeed, &myJitd);
     myTester.insert(1, dataSize, dataMin, dataMax);
+    myTester.printJitd();
     myTester.scan(queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
+    myTester.printJitd();
     vector<unsigned int> runtimes = myTester.getRuntimes();
     for (int i = 0; i < runtimes.size(); ++i){
         cout << runtimes[i]<< ",";

@@ -74,7 +74,7 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 					return result;
 				}
 		case BTREE:{
-					T k = ((btreeNode<T>*)node)->getKey();
+					const T k = ((btreeNode<T>*)node)->getKey();
 					if(k < high && low <= k){
 						vector<T> l = scan(((btreeNode<T>*)node)->left, low, high);
 						vector<T> r = scan(((btreeNode<T>*)node)->right, low, high);

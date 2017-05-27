@@ -1,11 +1,14 @@
 #include "tester.h"
-#include "jitd.h"
-#include "jitd.cpp"
+
 #include <chrono>
 #include <vector>
 #include <tuple>
+
+#include "jitd.h"
+#include "jitd.cpp"
 #include "dataGenerator.h"
 #include "queryGenerator.h"
+#include "printTree.h"
 
 using namespace std;
 
@@ -41,4 +44,8 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 
 vector<unsigned int> tester::getRuntimes(){
 	return runtimes;
+}
+
+void tester::printJitd(){
+	printTree(myJitd->getRoot(),0);
 }

@@ -17,6 +17,7 @@ class tester {
 		void insert(int queryCount, int dataSize, int dataMin, int dataMax);
 		void scan(int queryCount, int dataMin, int dataMax, int rangeSize, double hhDataRange, double hhProbability);
 		vector<unsigned int> getRuntimes();
+		void printJitd();
 };
 
 
