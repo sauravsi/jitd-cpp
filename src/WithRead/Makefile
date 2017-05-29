@@ -9,18 +9,22 @@ THIS_H := $(INC)$(WR)
 
 
 FILES := $(wildcard $(SRC)*.cpp) $(wildcard $(THIS)*.cpp)
-OBJECTS := $(FILES:$(SRC)%.cpp=$(BIN)%.o)
+#OBJECTS :=$(addprefix $(BIN)$(WR), $(addsuffix .o, $(basename $(notdir $(FILES)))))
+OBJECTS := $(FILES:$(SRC)%.cpp=$(BIN)$(WR)%.o)
 
 TARGET := $(ROOT)jitd_read
 
 INCLUDES := -I $(INC) -I $(SRC) -I $(THIS) -I $(THIS_H)
 
-all: cleanf $(BIN) $(BIN)$(WR) $(TARGET)
+all: $(BIN) $(BIN)$(WR) $(BIN)$(WR)$(WR) $(TARGET)
 
 $(BIN):
 	@mkdir $@
 
 $(BIN)$(WR):
+	@mkdir $@
+
+$(BIN)$(WR)$(WR):
 	@mkdir $@
 
 print:
@@ -30,19 +34,13 @@ print:
 $(TARGET): $(OBJECTS)
 	$(CC) $^ -o $@
 
-$(BIN)%.o: $(SRC)%.cpp $(INC)%.h
-	$(CC) -c $(INCLUDES) $< -o $@
-
-$(BIN)$(WR)main.o: $(SRC)$(WR)main.cpp
+$(BIN)$(WR)$(WR)main.o: $(SRC)$(WR)main.cpp
 	$(CC) -c $(INCLUDES) $^ -o $@
 
-$(BIN)$(WR)%.o: $(SRC)$(WR)%.cpp $(INC)$(WR)%.h
+$(BIN)$(WR)%.o: $(SRC)%.cpp $(INC)%.h
 	$(CC) -c $(INCLUDES) $< -o $@
 
 %.h:
-
-cleanf:
-	rm -rf $(BIN)*.o
 
 clean:
 	rm -rf $(BIN) $(TARGET)
