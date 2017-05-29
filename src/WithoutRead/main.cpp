@@ -26,7 +26,7 @@ int main() {
 
     int querySeed = 44;
     int rangeSize = 3;
-    int queryCount = 1000;
+    int queryCount = 10;
     double hhDataRange = 0.2;
     double hhProbability = 0.8;
 

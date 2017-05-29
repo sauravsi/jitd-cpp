@@ -15,7 +15,7 @@ TARGET := $(ROOT)jitd_noread
 
 INCLUDES := -I $(INC) -I $(SRC) -I $(THIS) -I $(THIS_H)
 
-all: $(BIN) $(BIN)$(WOR) $(TARGET)
+all: cleanf $(BIN) $(BIN)$(WOR) $(TARGET)
 
 $(BIN):
 	@mkdir $@
@@ -40,6 +40,9 @@ $(BIN)$(WOR)%.o: $(SRC)$(WOR)%.cpp $(INC)$(WOR)%.h
 	$(CC) -c $(INCLUDES) $< -o $@
 
 %.h:
+
+cleanf:
+	rm -rf $(BIN)*.o
 
 clean:
 	rm -rf $(BIN) $(TARGET)

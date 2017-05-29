@@ -6,12 +6,12 @@
 template <class T>
 class btreeNode: public cog {
 	private:
-		const T key;
+		T key;
 	public:
 		cog* left;
 		cog* right;
 		btreeNode( T k, cog* l, cog* r );
-		const T getKey();
+		T getKey();
 		cog* getLeft();
 		cog* getRight();
 };

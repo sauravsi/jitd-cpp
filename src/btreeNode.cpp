@@ -16,7 +16,7 @@ right(r)
 {}
 
 template <class T>
-const T btreeNode<T>::getKey(){
+T btreeNode<T>::getKey(){
 	return key;
 }
 
