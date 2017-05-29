@@ -3,7 +3,6 @@
 
 #include "crackPolicy.h"
 #include <vector>
-#include <iostream>
 #include "cog.h"
 #include "cogTypes.h"
 
@@ -44,13 +43,11 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 							}
 							else left.push_back(data[i]);
 						}
-						cout << "CRACKED!!::" << key << endl;
 						if(left.size() != 0 && right.size() != 0){
 							cog* l = new arrayNode<T>(left);
 							cog* r = new arrayNode<T>(right);
 							node = new btreeNode<T>(key, l, r);
 						}
-						cout << "new key::"<<((btreeNode<T>*)node)->getKey() << endl;
 					}
 					return;
 				}
