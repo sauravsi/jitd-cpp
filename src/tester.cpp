@@ -3,6 +3,7 @@
 #include <chrono>
 #include <vector>
 #include <tuple>
+#include <iostream>
 
 #include "jitd.h"
 #include "jitd.cpp"
@@ -27,6 +28,8 @@ void tester::insert(int queryCount, int dataSize, int dataMin, int dataMax){
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
 		i_seed++;
 	}
+	cout << "INSERT---------" << endl;
+	printJitd();
 }
 
 void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, double hhDataRange, double hhProbability){
@@ -38,6 +41,9 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 		clock::time_point end = clock::now();
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
+		cout << "SCAN----------" << endl;
+		printJitd();
+
 	}
 	s_seed++;
 }

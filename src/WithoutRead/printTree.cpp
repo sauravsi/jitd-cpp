@@ -40,12 +40,12 @@ void printTree(cog* it,int depth){
 			printTree(((btreeNode<int>*)it)->right, depth+1);
 			return;
 		case CONCAT:
-			printTree(((btreeNode<int>*)it)->left, depth+1);
+			printTree(((concatNode*)it)->left, depth+1);
 			for (int i = 0; i < depth; ++i){
 				cout << "\t";
 			}
 			cout << "CONCAT:" << "{" <<  endl;
-			printTree(((btreeNode<int>*)it)->right, depth+1);
+			printTree(((concatNode*)it)->right, depth+1);
 			return;
 	}
 }
