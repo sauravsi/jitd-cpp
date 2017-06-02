@@ -27,9 +27,9 @@ void tester::insert(int queryCount, int dataSize, int dataMin, int dataMax){
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
 		i_seed++;
+		cout << "INSERT---------" << endl;
+		printJitd();
 	}
-	cout << "INSERT---------" << endl;
-	printJitd();
 }
 
 void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, double hhDataRange, double hhProbability){

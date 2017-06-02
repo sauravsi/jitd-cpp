@@ -13,6 +13,9 @@ template <class T>
 jitd<T>::jitd(policy<T>* pl): root(0), p(pl){}
 
 template <class T>
+jitd<T>::jitd(cog* r, policy<T>* pl): root(r), p(pl){}
+
+template <class T>
 cog* jitd<T>::getRoot(){
 	return root;
 }

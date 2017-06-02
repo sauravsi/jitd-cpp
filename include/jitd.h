@@ -13,6 +13,7 @@ class jitd {
 		policy<T>* p;
 	public:
 		jitd(policy<T>* pl);
+		jitd(cog* r, policy<T>* pl);
 		cog* getRoot();
 		void insert(T* data, int size);
 		vector<T> scan(T low, T high);

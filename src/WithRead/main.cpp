@@ -47,7 +47,6 @@ int main() {
     else {
         return 0;
     }
-
     hybridPolicy<int>* p = new hybridPolicy<int>(policies);
 	jitd<int> myJitd(p);
     tester myTester(DATASEED, QUERYSEED, &myJitd);
