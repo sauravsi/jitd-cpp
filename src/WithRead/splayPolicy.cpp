@@ -22,6 +22,7 @@ void splayPolicy<T>::afterInsert (cog* &node){
 
 template <class T>
 void splayPolicy<T>::beforeIterator (cog* &node){
+	nodeReadcount = node->getReadcount();
 	switch(node->getType()){
 		case BTREE:{
 					if(((btreeNode<T>*)node)->getLeft()->getReadcount() >= (2/3)*node->getReadcount() && ((btreeNode<T>*)node)->getLeft()->getType() == BTREE){
@@ -51,13 +52,12 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 
 template <class T>
 void splayPolicy<T>::afterIterator (cog* &node){
-	//node->setReadcount(node->getReadcount()+1);
 	switch(node->getType()){
 		case ARRAY:
-			node->setReadcount(node->getReadcount()+1);
+			node->setReadcount(nodeReadcount+1);
 			return;
 		case SORTED_ARRAY:
-			node->setReadcount(node->getReadcount()+1);
+			node->setReadcount(nodeReadcount+1);
 			return;
 		case CONCAT:
 			node->setReadcount(((concatNode*)node)->getLeft()->getReadcount()+((concatNode*)node)->getRight()->getReadcount());

@@ -6,6 +6,8 @@
 #include "cog.h"
 #include "cogTypes.h"
 #include "policy.h"
+#include "binarySearch.h"
+#include "binarySearch.cpp"
 
 using namespace std;
 
@@ -68,9 +70,13 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 		case SORTED_ARRAY:{
 					vector<T> data = ((sortedarrayNode<T>*)node)->getData();
 					vector<T> result;
-					for(int i = 0; i < data.size(); i++){
-						if((data[i] >= low && data[i] < high)||( data[i]==low && low == high )){
-							result.push_back(data[i]);
+					int n = data.size();
+					int l = binarySearch<T>(data,0,n,low);
+					if(l < n && l >= 0) {
+						for(int i = l; i < data.size(); i++){
+							if((data[i] >= low && data[i] < high)||( data[i]==low && low == high )){
+								result.push_back(data[i]);
+							}
 						}
 					}
 					p->afterIterator(node);

@@ -51,26 +51,26 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 					}
 					return;
 				}
-		case SORTED_ARRAY:{
-					if(((sortedarrayNode<T>*)node)->getSize() >= minSize){
-						vector<T> data = ((sortedarrayNode<T>*)node)->getData();
-						T key = data[data.size()/2];
-						vector<T> left;
-						vector<T> right;
-						for (int i = 0; i < data.size(); i++){
-							if(data[i] > key){
-								right.push_back(data[i]);
-							}
-							else left.push_back(data[i]);
-						}
-						if(left.size() != 0 && right.size() != 0){
-							cog* l = new sortedarrayNode<T>(left);
-							cog* r = new sortedarrayNode<T>(right);
-							node = new btreeNode<T>(key, l, r);
-						}
-					}
-					return;
-				}
+		// case SORTED_ARRAY:{
+		// 			if(((sortedarrayNode<T>*)node)->getSize() >= minSize){
+		// 				vector<T> data = ((sortedarrayNode<T>*)node)->getData();
+		// 				T key = data[data.size()/2];
+		// 				vector<T> left;
+		// 				vector<T> right;
+		// 				for (int i = 0; i < data.size(); i++){
+		// 					if(data[i] > key){
+		// 						right.push_back(data[i]);
+		// 					}
+		// 					else left.push_back(data[i]);
+		// 				}
+		// 				if(left.size() != 0 && right.size() != 0){
+		// 					cog* l = new sortedarrayNode<T>(left);
+		// 					cog* r = new sortedarrayNode<T>(right);
+		// 					node = new btreeNode<T>(key, l, r);
+		// 				}
+		// 			}
+		// 			return;
+		// 		}
 	}
 }
 

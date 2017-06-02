@@ -9,6 +9,8 @@
 
 template <class T>
 class splayPolicy: public policy<T> {
+	private:
+		unsigned int nodeReadcount;
 	public:
 		splayPolicy();
 		void afterInsert(cog* &node);
