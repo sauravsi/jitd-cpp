@@ -28,8 +28,8 @@ void tester::insert(int queryCount, int dataSize, int dataMin, int dataMax){
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
 		i_seed++;
-		cout << "INSERT---------" << endl;
-		printJitd();
+		// cout << "INSERT---------" << endl;
+		// printJitd();
 	}
 }
 
@@ -37,21 +37,21 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 	vector<tuple<int,int> > queries = queryGenerator(s_seed, queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
 	for (int i = 0; i < queries.size(); ++i){
 		using clock = std::chrono::steady_clock;
-		clock::time_point start = clock::now();
 		data low(get<0>(queries[i]),get<0>(queries[i]));
 		data high(get<1>(queries[i]),get<1>(queries[i]));
+		clock::time_point start = clock::now();
 		myJitd->scan(low,high);
 		clock::time_point end = clock::now();
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
-		cout << "SCAN----------" << endl;
-		printJitd();
+		// cout << "SCAN----------" << endl;
+		// printJitd();
 
 	}
 	s_seed++;
 }
 
-vector<unsigned int> tester::getRuntimes(){
+vector<unsigned long int> tester::getRuntimes(){
 	return runtimes;
 }
 

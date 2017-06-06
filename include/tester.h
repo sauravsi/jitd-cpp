@@ -10,14 +10,14 @@ using namespace std;
 class tester {
 	private:
 		jitd<data>* myJitd;
-		vector<unsigned int> runtimes;
+		vector<unsigned long int> runtimes;
 		int i_seed;
 		int s_seed;
 	public:
 		tester(int insert_seed, int scan_seed, jitd<data>* mj);
 		void insert(int queryCount, int dataSize, int dataMin, int dataMax);
 		void scan(int queryCount, int dataMin, int dataMax, int rangeSize, double hhDataRange, double hhProbability);
-		vector<unsigned int> getRuntimes();
+		vector<unsigned long int> getRuntimes();
 		void printJitd();
 };
 

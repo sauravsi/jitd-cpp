@@ -1,0 +1,5 @@
+policy crack 3 sort splay
+insert 1 0 1000000 10000000
+scan 500000 0 1000000 3 0.2 0.8
+scan 500000 0 1000000 3 0.2 0.8
+end
