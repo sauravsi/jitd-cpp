@@ -10,15 +10,16 @@
 #include "dataGenerator.h"
 #include "queryGenerator.h"
 #include "printTree.h"
+#include "data.h"
 
 using namespace std;
 
-tester::tester(int insert_seed, int scan_seed, jitd<int>* mj):myJitd(mj), i_seed(insert_seed), s_seed(scan_seed){}
+tester::tester(int insert_seed, int scan_seed, jitd<data>* mj):myJitd(mj), i_seed(insert_seed), s_seed(scan_seed){}
 
 void tester::insert(int queryCount, int dataSize, int dataMin, int dataMax){
 	for (int i = 0; i < queryCount; ++i){
-		int* list;
-    	list = (int*)calloc(dataSize, sizeof(int));
+		data* list;
+    	list = (data*)calloc(dataSize, sizeof(data));
     	dataGenerator(i_seed, dataMin, dataMax, list, dataSize);
 		using clock = std::chrono::steady_clock;
 		clock::time_point start = clock::now();
@@ -37,7 +38,9 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 	for (int i = 0; i < queries.size(); ++i){
 		using clock = std::chrono::steady_clock;
 		clock::time_point start = clock::now();
-		myJitd->scan(get<0>(queries[i]),get<1>(queries[i]));
+		data low(get<0>(queries[i]),get<0>(queries[i]));
+		data high(get<1>(queries[i]),get<1>(queries[i]));
+		myJitd->scan(low,high);
 		clock::time_point end = clock::now();
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());

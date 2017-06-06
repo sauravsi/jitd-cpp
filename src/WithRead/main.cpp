@@ -9,6 +9,7 @@
 #include "cogTypes.h"
 #include "tester.h"
 #include "getLine.h"
+#include "data.h"
 
 #include "splayPolicy.h"
 #include "splayPolicy.cpp"
@@ -20,7 +21,7 @@ using namespace std;
 
 int main() {
 
-	vector<policy<int>* > policies;
+	vector<policy<data>* > policies;
 	vector<string> line;
     line = getLine();
     string pol("policy");
@@ -31,15 +32,15 @@ int main() {
         for (int i = 1; i < line.size(); ++i) {
             if(line[i].compare(crack) == 0) {
                 int s = stoi(line[++i]);
-                policy<int>* p1 = new crackPolicy<int>(s);
+                policy<data>* p1 = new crackPolicy<data>(s);
                 policies.push_back(p1);
             }
             else if(line[i].compare(sort) == 0) {
-                policy<int>* p2 = new sortPolicy<int>();
+                policy<data>* p2 = new sortPolicy<data>();
                 policies.push_back(p2);
             }
             else if(line[i].compare(splay) == 0) {
-                policy<int>* p3 = new splayPolicy<int>();
+                policy<data>* p3 = new splayPolicy<data>();
                 policies.push_back(p3);
             }
         }
@@ -47,8 +48,8 @@ int main() {
     else {
         return 0;
     }
-    hybridPolicy<int>* p = new hybridPolicy<int>(policies);
-	jitd<int> myJitd(p);
+    hybridPolicy<data>* p = new hybridPolicy<data>(policies);
+	jitd<data> myJitd(p);
     tester myTester(DATASEED, QUERYSEED, &myJitd);
     
     string end("end");

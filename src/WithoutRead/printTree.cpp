@@ -1,6 +1,7 @@
 #include "printTree.h"
 #include "cog.h"
 #include "cogTypes.h"
+#include "data.h"
 #include <iostream>
 
 using namespace std;
@@ -11,10 +12,10 @@ void printTree(cog* it,int depth){
 				for (int i = 0; i < depth; ++i){
 					cout << "\t";
 				}
-				vector<int> arrdata = ((arrayNode<int>*)it)->getData();
-				cout << "ARRAY:" << ((arrayNode<int>*)it)->getSize() << "{" << arrdata[0];
+				vector<data> arrdata = ((arrayNode<data>*)it)->getData();
+				cout << "ARRAY:" << ((arrayNode<data>*)it)->getSize() << "{" << arrdata[0].key;
 				for (int i = 1; i < arrdata.size(); ++i){
-					cout << "," << arrdata[i];
+					cout << "," << arrdata[i].key;
 				}
 				cout << "}" << endl;
 				return;
@@ -23,21 +24,21 @@ void printTree(cog* it,int depth){
 				for (int i = 0; i < depth; ++i){
 					cout << "\t";
 				}
-				vector<int> arrdata = ((sortedarrayNode<int>*)it)->getData();
-				cout << "SORTED_ARRAY:" << ((sortedarrayNode<int>*)it)->getSize() << "{" << arrdata[0];
+				vector<data> arrdata = ((sortedarrayNode<data>*)it)->getData();
+				cout << "SORTED_ARRAY:" << ((sortedarrayNode<data>*)it)->getSize() << "{" << arrdata[0].key;
 				for (int i = 1; i < arrdata.size(); ++i){
-					cout << "," << arrdata[i];
+					cout << "," << arrdata[i].key;
 				}
 				cout << "}" << endl;
 				return;
 			}
 		case BTREE:
-			printTree(((btreeNode<int>*)it)->left, depth+1);
+			printTree(((btreeNode<data>*)it)->left, depth+1);
 			for (int i = 0; i < depth; ++i){
 				cout << "\t";
 			}
-			cout << "BTREE:" << ((btreeNode<int>*)it)->getKey() << "{" << endl;
-			printTree(((btreeNode<int>*)it)->right, depth+1);
+			cout << "BTREE:" << ((btreeNode<data>*)it)->getKey().key << "{" << endl;
+			printTree(((btreeNode<data>*)it)->right, depth+1);
 			return;
 		case CONCAT:
 			printTree(((concatNode*)it)->left, depth+1);
