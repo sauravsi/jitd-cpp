@@ -77,7 +77,7 @@ int main() {
     vector<unsigned long int> runtimes = myTester.getRuntimes();
     cout << "RUNTIMES:" << endl << runtimes[0];
     for (int i = 1; i < runtimes.size(); ++i){
-        cout << "," << runtimes[i];
+        cout << endl << runtimes[i];
     }
     cout << endl;
     // for (int i = 0; i < result.size(); ++i){
