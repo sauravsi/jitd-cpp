@@ -8,7 +8,7 @@
 using namespace std;
 
 template <class T>
-btreeNode<T>::btreeNode( T k, cog* l, cog* r )
+btreeNode<T>::btreeNode( T k, cog* &l, cog* &r )
 : cog(BTREE),
 key(k),
 left(l),

@@ -10,7 +10,7 @@ class btreeNode: public cog {
 	public:
 		cog* left;
 		cog* right;
-		btreeNode( T k, cog* l, cog* r );
+		btreeNode( T k, cog* &l, cog* &r );
 		T getKey();
 		cog* getLeft();
 		cog* getRight();

@@ -15,7 +15,7 @@ template <class T>
 jitd<T>::jitd(policy<T>* pl): root(0), p(pl){}
 
 template <class T>
-jitd<T>::jitd(cog* r, policy<T>* pl): root(r), p(pl){}
+jitd<T>::jitd(cog* &r, policy<T>* pl): root(r), p(pl){}
 
 template <class T>
 cog* jitd<T>::getRoot(){
@@ -23,7 +23,7 @@ cog* jitd<T>::getRoot(){
 }
 
 template <class T>
-void jitd<T>::insert(T* data, int size){
+void jitd<T>::insert(T* &data, int size){
 	p->beforeInsert(root);
 	vector<T> dataArray;
 	for(int i = 0; i < size; i++){

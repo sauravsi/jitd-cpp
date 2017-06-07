@@ -6,6 +6,6 @@
 using namespace std;
 
 template <class T>
-int binarySearch(vector<T> arr, int low, int high, T key);
+int binarySearch(vector<T> &arr, int low, int high, T key);
 
 #endif /* BINARYSEARCH_H_ */

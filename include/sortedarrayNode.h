@@ -11,8 +11,8 @@ class sortedarrayNode: public cog {
 	private:
 		vector<T> data;
 	public:
-		sortedarrayNode( T* d, int s);
-		sortedarrayNode( vector<T> d);
+		sortedarrayNode( T* &d, int s);
+		sortedarrayNode( vector<T> &d);
 		vector<T> getData();
 		int getSize();
 };

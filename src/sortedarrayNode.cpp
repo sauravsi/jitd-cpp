@@ -10,7 +10,7 @@
 using namespace std;
 
 template <class T>
-sortedarrayNode<T>::sortedarrayNode( T* d, int s)
+sortedarrayNode<T>::sortedarrayNode( T* &d, int s)
 : cog(SORTED_ARRAY){
 	for(int i = 0; i < s; i++){
 		data.push_back(d[i]);
@@ -18,7 +18,7 @@ sortedarrayNode<T>::sortedarrayNode( T* d, int s)
 }
 
 template <class T>
-sortedarrayNode<T>::sortedarrayNode(vector<T> d)
+sortedarrayNode<T>::sortedarrayNode(vector<T> &d)
 : cog(SORTED_ARRAY), data(d){}
 
 template <class T>

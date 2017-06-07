@@ -11,7 +11,7 @@
 using namespace std;
 
 template <class T>
-arrayNode<T>::arrayNode( T* d ,int s)
+arrayNode<T>::arrayNode( T* &d ,int s)
 : cog(ARRAY){
 	for(int i = 0; i < s; i++){
 		data.push_back(d[i]);
@@ -19,7 +19,7 @@ arrayNode<T>::arrayNode( T* d ,int s)
 }
 
 template <class T>
-arrayNode<T>::arrayNode(vector<T> d)
+arrayNode<T>::arrayNode(vector<T> &d)
 : cog(ARRAY), data(d){}
 
 template <class T>

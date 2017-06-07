@@ -55,13 +55,13 @@ create files with the required queries using the test script syntax explained ab
 
 If "test" uses splay policy then execute:
 
-	/>	./jitd_read < test
+	/>	./jitd_read test
 
 ELSE
 
 If "test" does not use splay policy then execute:
 
-	/>	./jitd_noread < test
+	/>	./jitd_noread test
 
 Note: 
 Running a test that uses splay policy with jitd_noread will ignore splay and use Cogs WITHOUT readcounts.

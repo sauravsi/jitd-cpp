@@ -4,7 +4,7 @@
 
 using namespace std;
 
-concatNode::concatNode( cog* l, cog* r )
+concatNode::concatNode( cog* &l, cog* &r )
 : cog(CONCAT),
 left(l),
 right(r)
@@ -18,10 +18,10 @@ cog* concatNode::getRight(){
 	return right;
 }
 
-void concatNode::setLeft(cog* l){
+void concatNode::setLeft(cog* &l){
 	left = l;
 }
 
-void concatNode::setRight(cog* r){
+void concatNode::setRight(cog* &r){
 	right = r;
 }

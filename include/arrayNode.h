@@ -11,8 +11,8 @@ class arrayNode: public cog {
 	private:
 		vector<T> data;
 	public:
-		arrayNode( T* d, int s);
-		arrayNode(vector<T> d);
+		arrayNode( T* &d, int s);
+		arrayNode(vector<T> &d);
 		vector<T> getData();
 		int getSize();
 };

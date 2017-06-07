@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <tuple>
@@ -19,11 +20,16 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
 
+    if(argc < 2){
+        cout << "Please enter testscript file" << endl;
+        return -1;
+    }
 	vector<policy<data>* > policies;
 	vector<string> line;
-    line = getLine();
+    ifstream ifile(argv[1]);
+    line = getLine(ifile);
     string pol("policy");
     if(line[0].compare(pol) == 0){
         string crack("crack");
@@ -56,8 +62,8 @@ int main() {
     string insert("insert");
     string scan("scan");
     do{
-        line = getLine();
-        if(line[0].compare(insert) == 0){
+            line = getLine(ifile);
+            if(line[0].compare(insert) == 0){
             int queryCount = stoi(line[1]);
             int dataMin = stoi(line[2]);
             int dataMax = stoi(line[3]);
