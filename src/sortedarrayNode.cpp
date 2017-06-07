@@ -23,7 +23,7 @@ sortedarrayNode<T>::sortedarrayNode(vector<T> &d)
 
 template <class T>
 vector<T> sortedarrayNode<T>::getData(){
-	return data;
+	return &data;
 }
 
 template <class T>
