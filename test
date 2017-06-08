@@ -1,4 +1,4 @@
 policy crack 10000 sort splay
-insert 1 0 10000 1000000
-scan 100 0 10000 3 0.2 0.8
+insert 1 0 1000000 10000000
+scan 1000 0 1000000 3 0.2 0.8
 end

@@ -24,7 +24,7 @@ arrayNode<T>::arrayNode(vector<T> &d)
 
 template <class T>
 vector<T> arrayNode<T>::getData(){
-	return &data;
+	return data;
 }
 
 template <class T>
