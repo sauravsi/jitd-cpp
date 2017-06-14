@@ -23,11 +23,6 @@ arrayNode<T>::arrayNode(vector<T> &d)
 : cog(ARRAY), data(d){}
 
 template <class T>
-vector<T> arrayNode<T>::getData(){
-	return data;
-}
-
-template <class T>
 int arrayNode<T>::getSize(){
 	return data.size();
 }

@@ -8,12 +8,10 @@ using namespace std;
 
 template <class T>
 class sortedarrayNode: public cog {
-	private:
-		vector<T> data;
 	public:
+		vector<T> data;
 		sortedarrayNode( T* &d, int s);
 		sortedarrayNode( vector<T> &d);
-		vector<T> getData();
 		int getSize();
 };
 

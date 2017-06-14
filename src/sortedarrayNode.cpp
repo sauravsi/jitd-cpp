@@ -22,11 +22,6 @@ sortedarrayNode<T>::sortedarrayNode(vector<T> &d)
 : cog(SORTED_ARRAY), data(d){}
 
 template <class T>
-vector<T> sortedarrayNode<T>::getData(){
-	return data;
-}
-
-template <class T>
 int sortedarrayNode<T>::getSize(){
 	return data.size();
 }

@@ -12,7 +12,7 @@ void printTree(cog* it,int depth){
 				for (int i = 0; i < depth; ++i){
 					cout << "\t";
 				}
-				vector<data> arrdata = ((arrayNode<data>*)it)->getData();
+				vector<data> arrdata = ((arrayNode<data>*)it)->data;
 				cout << "(" << it->getReadcount() << ")" ;
 				cout << "ARRAY:" << ((arrayNode<data>*)it)->getSize() << "{" << arrdata[0].key;
 				for (int i = 1; i < arrdata.size(); ++i){
@@ -25,7 +25,7 @@ void printTree(cog* it,int depth){
 				for (int i = 0; i < depth; ++i){
 					cout << "\t";
 				}
-				vector<data> arrdata = ((sortedarrayNode<data>*)it)->getData();
+				vector<data> arrdata = ((sortedarrayNode<data>*)it)->data;
 				cout << "(" << it->getReadcount() << ")" ;
 				cout << "SORTED_ARRAY:" << ((sortedarrayNode<data>*)it)->getSize() << "{" << arrdata[0].key;
 				for (int i = 1; i < arrdata.size(); ++i){

@@ -16,19 +16,18 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 	switch(node->getType()){
 		case ARRAY:{
 					if(((arrayNode<T>*)node)->getSize() >= minSize){
-						vector<T> data = ((arrayNode<T>*)node)->getData();
 						vector<T> left;
 						vector<T> right;
-						T max = data[0];
-						T key = data[0];
-						for(int i = 0; i < data.size(); i++){
-							if(max < data[i]){
+						T max =((arrayNode<T>*)node)->data[0];
+						T key =((arrayNode<T>*)node)->data[0];
+						for(int i = 0; i <((arrayNode<T>*)node)->data.size(); i++){
+							if(max <((arrayNode<T>*)node)->data[i]){
 								key = max;
-								max = data[i];
+								max =((arrayNode<T>*)node)->data[i];
 								break;
 							}
-							else if(data[i] < max){
-								key = data[i];
+							else if(((arrayNode<T>*)node)->data[i] < max){
+								key =((arrayNode<T>*)node)->data[i];
 								break;
 							}
 						}
@@ -37,11 +36,11 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 							return;
 						}
 
-						for (int i = 0; i < data.size(); i++){
-							if(data[i] > key){
-								right.push_back(data[i]);
+						for (int i = 0; i <((arrayNode<T>*)node)->data.size(); i++){
+							if(((arrayNode<T>*)node)->data[i] > key){
+								right.push_back(((arrayNode<T>*)node)->data[i]);
 							}
-							else left.push_back(data[i]);
+							else left.push_back(((arrayNode<T>*)node)->data[i]);
 						}
 						if(left.size() != 0 && right.size() != 0){
 							cog* l = new arrayNode<T>(left);
@@ -53,15 +52,15 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 				}
 		// case SORTED_ARRAY:{
 		// 			if(((sortedarrayNode<T>*)node)->getSize() >= minSize){
-		// 				vector<T> data = ((sortedarrayNode<T>*)node)->getData();
-		// 				T key = data[data.size()/2];
+		// 				vector<T>((arrayNode<T>*)node)->data = ((sortedarrayNode<T>*)node)->getData();
+		// 				T key =((arrayNode<T>*)node)->data[data.size()/2];
 		// 				vector<T> left;
 		// 				vector<T> right;
-		// 				for (int i = 0; i < data.size(); i++){
-		// 					if(data[i] > key){
-		// 						right.push_back(data[i]);
+		// 				for (int i = 0; i <((arrayNode<T>*)node)->data.size(); i++){
+		// 					if(((arrayNode<T>*)node)->data[i] > key){
+		// 						right.push_back(((arrayNode<T>*)node)->data[i]);
 		// 					}
-		// 					else left.push_back(data[i]);
+		// 					else left.push_back(((arrayNode<T>*)node)->data[i]);
 		// 				}
 		// 				if(left.size() != 0 && right.size() != 0){
 		// 					cog* l = new sortedarrayNode<T>(left);
