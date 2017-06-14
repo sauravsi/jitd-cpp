@@ -1,4 +1,4 @@
-policy crack 5 sort splay
+policy crack 5 sort splay read
 insert 1 0 9 100
 scan 100 0 9 3 0.2 0.8
 end
