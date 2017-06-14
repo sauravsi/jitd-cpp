@@ -41,34 +41,31 @@ void jitd<T>::insert(T* &data, int size){
 }
 
 template <class T>
-vector<T> jitd<T>::scan(T low, T high){
+void jitd<T>::scan(T low, T high, vector<T> &result){
 	if(high < low){
 		T temp = low;
 		low = high;
 		high = temp;
 	}
 	p->beforeRootIterator(root);
-	vector<T> result = scan(root, low, high);
-	return result;
+	scan(root, low, high, result);
+	return;
 }
 
 template <class T>
-vector<T> jitd<T>::scan(cog* &node, T low, T high){
+void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 	p->beforeIterator(node);
 	switch(node->getType()){
 		case ARRAY:{
-					vector<T> result;
 					for(int i = 0; i < ((arrayNode<T>*)node)->data.size(); i++){
 						if((((arrayNode<T>*)node)->data[i] >= low && ((arrayNode<T>*)node)->data[i] < high)||( ((arrayNode<T>*)node)->data[i]==low && low == high )){
 							result.push_back(((arrayNode<T>*)node)->data[i]);
 						}
 					}
 					p->afterIterator(node);
-					return result;
+					return;
 				}
 		case SORTED_ARRAY:{
-
-					vector<T> result;
 					int n = ((sortedarrayNode<T>*)node)->data.size();
 					int l = binarySearch<T>(((sortedarrayNode<T>*)node)->data,0,n,low);
 					if(l < n && l >= 0) {
@@ -79,46 +76,28 @@ vector<T> jitd<T>::scan(cog* &node, T low, T high){
 						}
 					}
 					p->afterIterator(node);
-					return result;
+					return;
 				}
 		case BTREE:{
 					const T k = ((btreeNode<T>*)node)->getKey();
 					if(k < high && low <= k){
-						vector<T> l = scan(((btreeNode<T>*)node)->left, low, high);
-						vector<T> r = scan(((btreeNode<T>*)node)->right, low, high);
-						vector<T> result;
-						for (int i = 0; i < l.size(); i++){
-							result.push_back(l[i]);
-						}
-						for (int i = 0; i < r.size(); i++){
-							result.push_back(r[i]);
-						}
-						p->afterIterator(node);
-						return result;
+						scan(((btreeNode<T>*)node)->left, low, high, result);
+						scan(((btreeNode<T>*)node)->right, low, high, result);
 					}
 					else if(low > k){
-						vector<T> result = scan(((btreeNode<T>*)node)->right, low, high);
-						p->afterIterator(node);
-						return result;
+						scan(((btreeNode<T>*)node)->right, low, high, result);
 					}
 					else{
-						vector<T> result = scan(((btreeNode<T>*)node)->left, low, high);
-						p->afterIterator(node);
-						return result;
-					}
-				}
-		case CONCAT:{
-					vector<T> l = scan(((concatNode*)node)->left, low, high);
-					vector<T> r = scan(((concatNode*)node)->right, low, high);
-					vector<T> result;
-					for (int i = 0; i < l.size(); i++){
-						result.push_back(l[i]);
-					}
-					for (int i = 0; i < r.size(); i++){
-						result.push_back(r[i]);
+						scan(((btreeNode<T>*)node)->left, low, high, result);
 					}
 					p->afterIterator(node);
-					return result;
+					return;
+				}
+		case CONCAT:{
+					scan(((concatNode*)node)->left, low, high, result);
+					scan(((concatNode*)node)->right, low, high, result);
+					p->afterIterator(node);
+					return;
 				}
 	}
 }

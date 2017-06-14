@@ -16,8 +16,8 @@ class jitd {
 		jitd(cog* &r, policy<T>* pl);
 		cog* getRoot();
 		void insert(T* &data, int size);
-		vector<T> scan(T low, T high);
-		vector<T> scan(cog* &node, T low, T high);
+		void scan(T low, T high, vector<T> &result);
+		void scan(cog* &node, T low, T high, vector<T> &result);
 };
 
 #endif /* JITD_H_ */
