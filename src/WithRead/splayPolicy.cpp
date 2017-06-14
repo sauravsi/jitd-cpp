@@ -1,7 +1,5 @@
 #ifndef SPLAYPOLICY_CPP_
-#ifndef READCOUNT
 #define SPLAYPOLICY_CPP_
-#define READCOUNT
 
 #include "splayPolicy.h"
 #include <vector>
@@ -49,25 +47,5 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 				}
 	}
 }
-
-template <class T>
-void splayPolicy<T>::afterIterator (cog* &node){
-	switch(node->getType()){
-		case ARRAY:
-			node->setReadcount(nodeReadcount+1);
-			return;
-		case SORTED_ARRAY:
-			node->setReadcount(nodeReadcount+1);
-			return;
-		case CONCAT:
-			node->setReadcount(((concatNode*)node)->getLeft()->getReadcount()+((concatNode*)node)->getRight()->getReadcount());
-			return;
-		case BTREE:
-			node->setReadcount(((btreeNode<T>*)node)->getLeft()->getReadcount()+((btreeNode<T>*)node)->getRight()->getReadcount());
-			return;
-		}
-}
-
-#endif
 
 #endif /* SPLAYPOLICY_CPP_ */

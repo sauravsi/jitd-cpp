@@ -14,6 +14,8 @@
 
 #include "splayPolicy.h"
 #include "splayPolicy.cpp"
+#include "readPolicy.h"
+#include "readPolicy.cpp"
 
 #define DATASEED 80
 #define QUERYSEED 44
@@ -35,6 +37,7 @@ int main(int argc, char* argv[]) {
         string crack("crack");
         string sort("sort");
         string splay("splay");
+        string read("read");
         for (int i = 1; i < line.size(); ++i) {
             if(line[i].compare(crack) == 0) {
                 int s = stoi(line[++i]);
@@ -48,6 +51,10 @@ int main(int argc, char* argv[]) {
             else if(line[i].compare(splay) == 0) {
                 policy<data>* p3 = new splayPolicy<data>();
                 policies.push_back(p3);
+            }
+            else if(line[i].compare(read) == 0) {
+                policy<data>* p4 = new readPolicy<data>();
+                policies.push_back(p4);
             }
         }
     }
