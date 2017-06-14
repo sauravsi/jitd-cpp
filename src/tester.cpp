@@ -45,8 +45,8 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 		clock::time_point end = clock::now();
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
-		cout << "SCAN----------" << endl;
-		printJitd();
+		// cout << "SCAN----------" << endl;
+		// printJitd();
 	}
 	s_seed++;
 }
