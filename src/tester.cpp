@@ -51,10 +51,6 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 	s_seed++;
 }
 
-vector<unsigned long int> tester::getRuntimes(){
-	return runtimes;
-}
-
 void tester::printJitd(){
 	printTree(myJitd->getRoot(),0);
 }

@@ -72,10 +72,9 @@ int main(int argc, char* argv[]) {
             myTester.scan(queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
         }
     } while(line[0].compare(end) != 0);    
-    vector<unsigned long int> runtimes = myTester.getRuntimes();
-    cout << "RUNTIMES:" << endl << runtimes[0];
-    for (int i = 1; i < runtimes.size(); ++i){
-        cout << endl << runtimes[i];
+    cout << "RUNTIMES:" << endl << myTester.runtimes[0];
+    for (int i = 1; i < myTester.runtimes.size(); ++i){
+        cout << endl << myTester.runtimes[i];
     }
     cout << endl;
     // for (int i = 0; i < result.size(); ++i){
