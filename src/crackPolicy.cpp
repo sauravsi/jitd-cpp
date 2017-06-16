@@ -45,6 +45,7 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 						if(left.size() != 0 && right.size() != 0){
 							cog* l = new arrayNode<T>(left);
 							cog* r = new arrayNode<T>(right);
+							delete node;
 							node = new btreeNode<T>(key, l, r);
 						}
 					}

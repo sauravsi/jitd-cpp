@@ -14,6 +14,7 @@ void sortPolicy<T>::beforeIterator (cog* &node){
 	switch(node->getType()){
 		case ARRAY:{
 					sort(((arrayNode<T>*)node)->data.begin(), ((arrayNode<T>*)node)->data.end());
+					delete node;
 					node = new sortedarrayNode<T>(((arrayNode<T>*)node)->data);
 				}
 	}

@@ -30,6 +30,7 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 						cog* c = ((btreeNode<T>*)node)->getRight();
 						cog* newR = new btreeNode<T>(((btreeNode<T>*)node)->getKey(),b,c);
 						newR->setReadcount(b->getReadcount()+c->getReadcount());
+						delete node;
 						node = new btreeNode<T>(lhs->getKey(), a, newR);
 						node->setReadcount(newR->getReadcount()+a->getReadcount());
 					}
@@ -40,6 +41,7 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 						cog* c = rhs->getRight();
 						cog* newL = new btreeNode<T>(((btreeNode<T>*)node)->getKey(),a,b);
 						newL->setReadcount(a->getReadcount()+b->getReadcount());
+						delete node;
 						node = new btreeNode<T>(rhs->getKey(), newL, c);
 						node->setReadcount(newL->getReadcount()+c->getReadcount());
 					}
