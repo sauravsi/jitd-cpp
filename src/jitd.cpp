@@ -2,12 +2,11 @@
 #define JITD_CPP_
 
 #include "jitd.h"
+#include <algorithm>
 #include <vector>
 #include "cog.h"
 #include "cogTypes.h"
 #include "policy.h"
-#include "binarySearch.h"
-#include "binarySearch.cpp"
 
 using namespace std;
 
@@ -67,7 +66,9 @@ void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 				}
 		case SORTED_ARRAY:{
 					int n = ((sortedarrayNode<T>*)node)->data.size();
-					int l = binarySearch<T>(((sortedarrayNode<T>*)node)->data,0,n,low);
+					typename vector<T>::iterator lowi = lower_bound(((sortedarrayNode<T>*)node)->data.begin(),((sortedarrayNode<T>*)node)->data.end(), low);
+					int l = lowi - ((sortedarrayNode<T>*)node)->data.begin();
+					// int l = binarySearch<T>(((sortedarrayNode<T>*)node)->data,0,n,low);
 					if(l < n && l >= 0) {
 						for(int i = l; i < ((sortedarrayNode<T>*)node)->data.size(); i++){
 							if((((sortedarrayNode<T>*)node)->data[i] >= low && ((sortedarrayNode<T>*)node)->data[i] < high)||( ((sortedarrayNode<T>*)node)->data[i]==low && low == high )){
