@@ -67,15 +67,15 @@ void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 		case SORTED_ARRAY:{
 					int n = ((sortedarrayNode<T>*)node)->data.size();
 					typename vector<T>::iterator lowi = lower_bound(((sortedarrayNode<T>*)node)->data.begin(),((sortedarrayNode<T>*)node)->data.end(), low);
-					int l = lowi - ((sortedarrayNode<T>*)node)->data.begin();
-					// int l = binarySearch<T>(((sortedarrayNode<T>*)node)->data,0,n,low);
-					if(l < n && l >= 0) {
-						for(int i = l; i < ((sortedarrayNode<T>*)node)->data.size(); i++){
-							if((((sortedarrayNode<T>*)node)->data[i] >= low && ((sortedarrayNode<T>*)node)->data[i] < high)||( ((sortedarrayNode<T>*)node)->data[i]==low && low == high )){
-								result.push_back(((sortedarrayNode<T>*)node)->data[i]);
-							}
-						}
-					}
+					// int l = lowi - ((sortedarrayNode<T>*)node)->data.begin();
+					// // int l = binarySearch<T>(((sortedarrayNode<T>*)node)->data,0,n,low);
+					// if(l < n && l >= 0) {
+					// 	for(int i = l; i < ((sortedarrayNode<T>*)node)->data.size(); i++){
+					// 		if((((sortedarrayNode<T>*)node)->data[i] >= low && ((sortedarrayNode<T>*)node)->data[i] < high)||( ((sortedarrayNode<T>*)node)->data[i]==low && low == high )){
+					// 			result.push_back(((sortedarrayNode<T>*)node)->data[i]);
+					// 		}
+					// 	}
+					// }
 					p->afterIterator(node);
 					return;
 				}
