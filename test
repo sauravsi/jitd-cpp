@@ -1,4 +1,5 @@
-policy crack 5 sort splay read
-insert 1 0 9 10000
-scan 1000 0 9 3 0.2 0.8
+policy crack 1000 sort read
+insert 1 0 1000000 10000000
+scan 50000 0 1000000 3 0.2 0.8
+scan 50000 0 1000000 3 0.0 0.0
 end
