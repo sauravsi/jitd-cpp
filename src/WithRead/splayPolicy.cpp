@@ -28,7 +28,7 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 						cog* a = lhs->getLeft();
 						cog* b = lhs->getRight();
 						cog* c = ((btreeNode<T>*)node)->getRight();
-						if (a->getReadcount()>(2/3)*c->getReadcount()){
+						if (a->getReadcount()>2*c->getReadcount()){
 							cog* newR = new btreeNode<T>(((btreeNode<T>*)node)->getKey(),b,c);
 							newR->setReadcount(b->getReadcount()+c->getReadcount());
 							delete node;
@@ -42,7 +42,7 @@ void splayPolicy<T>::beforeIterator (cog* &node){
 						cog* a = ((btreeNode<T>*)node)->getLeft();
 						cog* b = rhs->getLeft();
 						cog* c = rhs->getRight();
-						if (c->getReadcount()>(2/3)*a->getReadcount()){
+						if (c->getReadcount()>2*a->getReadcount()){
 							
 							cog* newL = new btreeNode<T>(((btreeNode<T>*)node)->getKey(),a,b);
 							newL->setReadcount(a->getReadcount()+b->getReadcount());
