@@ -16,18 +16,18 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 	switch(node->getType()){
 		case ARRAY:{
 					if(((arrayNode<T>*)node)->getSize() >= minSize){
-						vector<T> left;
-						vector<T> right;
-						T max =((arrayNode<T>*)node)->data[0];
-						T key =((arrayNode<T>*)node)->data[0];
-						for(int i = 0; i <((arrayNode<T>*)node)->data.size(); i++){
-							if(max <((arrayNode<T>*)node)->data[i]){
+						vector<T>* left = new vector<T>();
+						vector<T>* right = new vector<T>();
+						T max =((arrayNode<T>*)node)->data->at(0);
+						T key =((arrayNode<T>*)node)->data->at(0);
+						for(int i = 0; i <((arrayNode<T>*)node)->getSize(); i++){
+							if(max <((arrayNode<T>*)node)->data->at(i)){
 								key = max;
-								max =((arrayNode<T>*)node)->data[i];
+								max =((arrayNode<T>*)node)->data->at(i);
 								break;
 							}
-							else if(((arrayNode<T>*)node)->data[i] < max){
-								key =((arrayNode<T>*)node)->data[i];
+							else if(((arrayNode<T>*)node)->data->at(i) < max){
+								key =((arrayNode<T>*)node)->data->at(i);
 								break;
 							}
 						}
@@ -36,41 +36,22 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 							return;
 						}
 
-						for (int i = 0; i <((arrayNode<T>*)node)->data.size(); i++){
-							if(((arrayNode<T>*)node)->data[i] > key){
-								right.push_back(((arrayNode<T>*)node)->data[i]);
+						for (int i = 0; i <((arrayNode<T>*)node)->getSize(); i++){
+							if(((arrayNode<T>*)node)->data->at(i) > key){
+								right->push_back(((arrayNode<T>*)node)->data->at(i));
 							}
-							else left.push_back(((arrayNode<T>*)node)->data[i]);
+							else left->push_back(((arrayNode<T>*)node)->data->at(i));
 						}
-						if(left.size() != 0 && right.size() != 0){
-							cog* l = new arrayNode<T>(left);
-							cog* r = new arrayNode<T>(right);
+						if(left->size() != 0 && right->size() != 0){
+							cog* l = new arrayNode<T>(*left);
+							cog* r = new arrayNode<T>(*right);
+							delete ((arrayNode<T>*)node)->data;
 							delete node;
 							node = new btreeNode<T>(key, l, r);
 						}
 					}
 					return;
 				}
-		// case SORTED_ARRAY:{
-		// 			if(((sortedarrayNode<T>*)node)->getSize() >= minSize){
-		// 				vector<T>((arrayNode<T>*)node)->data = ((sortedarrayNode<T>*)node)->getData();
-		// 				T key =((arrayNode<T>*)node)->data[data.size()/2];
-		// 				vector<T> left;
-		// 				vector<T> right;
-		// 				for (int i = 0; i <((arrayNode<T>*)node)->data.size(); i++){
-		// 					if(((arrayNode<T>*)node)->data[i] > key){
-		// 						right.push_back(((arrayNode<T>*)node)->data[i]);
-		// 					}
-		// 					else left.push_back(((arrayNode<T>*)node)->data[i]);
-		// 				}
-		// 				if(left.size() != 0 && right.size() != 0){
-		// 					cog* l = new sortedarrayNode<T>(left);
-		// 					cog* r = new sortedarrayNode<T>(right);
-		// 					node = new btreeNode<T>(key, l, r);
-		// 				}
-		// 			}
-		// 			return;
-		// 		}
 	}
 }
 
