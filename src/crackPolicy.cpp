@@ -38,9 +38,9 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 
 						for(typename vector<T>::iterator it = ((arrayNode<T>*)node)->data->begin(); it != ((arrayNode<T>*)node)->data->end(); it++){
 							if(*it > key){
-								right-> *it;
+								right->push_back(*it);
 							}
-							else left-> *it;
+							else left->push_back(*it);
 						}
 						if(left->size() != 0 && right->size() != 0){
 							cog* l = new arrayNode<T>(*left);
