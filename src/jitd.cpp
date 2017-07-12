@@ -2,7 +2,6 @@
 #define JITD_CPP_
 
 #include "jitd.h"
-#include <iostream>
 #include <algorithm>
 #include <vector>
 #include "cog.h"
@@ -57,11 +56,16 @@ void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 	p->beforeIterator(node);
 	switch(node->getType()){
 		case ARRAY:{
-					for(int i = 0; i < ((arrayNode<T>*)node)->getSize(); i++){
-						if((((arrayNode<T>*)node)->data->at(i) >= low && ((arrayNode<T>*)node)->data->at(i) < high)||( ((arrayNode<T>*)node)->data->at(i)==low && low == high )){
-							result.push_back(((arrayNode<T>*)node)->data->at(i));
+					for(typename vector<T>::iterator it = ((arrayNode<T>*)node)->data->begin(); it != ((arrayNode<T>*)node)->data->end(); it++){
+						if((*it >= low && *it < high)||( *it == low && low == high )){
+							result.push_back(*it);
 						}
 					}
+					// for(int i = 0; i < ((arrayNode<T>*)node)->getSize(); i++){
+					// 	if((((arrayNode<T>*)node)->data->at(i) >= low && ((arrayNode<T>*)node)->data->at(i) < high)||( ((arrayNode<T>*)node)->data->at(i)==low && low == high )){
+					// 		result.push_back(((arrayNode<T>*)node)->data->at(i));
+					// 	}
+					// }
 					p->afterIterator(node);
 					return;
 				}
@@ -70,9 +74,9 @@ void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 					typename vector<T>::iterator lowi = lower_bound(((sortedarrayNode<T>*)node)->data->begin(),((sortedarrayNode<T>*)node)->data->end(), low);
 					int l = lowi - ((sortedarrayNode<T>*)node)->data->begin();
 					if(l < n && l >= 0) {
-						for(int i = l; i < n && ((sortedarrayNode<T>*)node)->data->at(i) <= high; i++){
-							if((((sortedarrayNode<T>*)node)->data->at(i) >= low && ((sortedarrayNode<T>*)node)->data->at(i) < high)||( ((sortedarrayNode<T>*)node)->data->at(i)==low && low == high )){
-								result.push_back(((sortedarrayNode<T>*)node)->data->at(i));
+						for(typename vector<T>::iterator it = lowi; it != ((sortedarrayNode<T>*)node)->data->end() && *it <= high; it++){
+							if(( *it >= low && *it < high )||( *it == low && low == high )){
+								result.push_back(*it);
 							}
 						}
 					}

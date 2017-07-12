@@ -20,14 +20,14 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 						vector<T>* right = new vector<T>();
 						T max =((arrayNode<T>*)node)->data->at(0);
 						T key =((arrayNode<T>*)node)->data->at(0);
-						for(int i = 0; i <((arrayNode<T>*)node)->getSize(); i++){
-							if(max <((arrayNode<T>*)node)->data->at(i)){
+						for(typename vector<T>::iterator it = ((arrayNode<T>*)node)->data->begin(); it != ((arrayNode<T>*)node)->data->end(); it++){
+							if(max < *it){
 								key = max;
-								max =((arrayNode<T>*)node)->data->at(i);
+								max = *it;
 								break;
 							}
-							else if(((arrayNode<T>*)node)->data->at(i) < max){
-								key =((arrayNode<T>*)node)->data->at(i);
+							else if(*it < max){
+								key = *it;
 								break;
 							}
 						}
@@ -36,11 +36,11 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 							return;
 						}
 
-						for (int i = 0; i <((arrayNode<T>*)node)->getSize(); i++){
-							if(((arrayNode<T>*)node)->data->at(i) > key){
-								right->push_back(((arrayNode<T>*)node)->data->at(i));
+						for(typename vector<T>::iterator it = ((arrayNode<T>*)node)->data->begin(); it != ((arrayNode<T>*)node)->data->end(); it++){
+							if(*it > key){
+								right-> *it;
 							}
-							else left->push_back(((arrayNode<T>*)node)->data->at(i));
+							else left-> *it;
 						}
 						if(left->size() != 0 && right->size() != 0){
 							cog* l = new arrayNode<T>(*left);
