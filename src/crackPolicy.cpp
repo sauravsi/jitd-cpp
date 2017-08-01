@@ -16,8 +16,8 @@ void crackPolicy<T>::beforeIterator (cog* &node){
 	switch(node->getType()){
 		case ARRAY:{
 					if(((arrayNode<T>*)node)->getSize() >= minSize){
-						vector<T>* left = new vector<T>();
-						vector<T>* right = new vector<T>();
+						vector<T>* left = new vector<T>(((arrayNode<T>*)node)->data->size());
+						vector<T>* right = new vector<T>(((arrayNode<T>*)node)->data->size());
 						T max =((arrayNode<T>*)node)->data->at(0);
 						T key =((arrayNode<T>*)node)->data->at(0);
 						for(typename vector<T>::iterator it = ((arrayNode<T>*)node)->data->begin(); it != ((arrayNode<T>*)node)->data->end(); it++){

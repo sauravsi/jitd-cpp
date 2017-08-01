@@ -13,6 +13,7 @@ using namespace std;
 template <class T>
 arrayNode<T>::arrayNode( T* &d ,int s)
 : cog(ARRAY){
+	data = new vector<T>(s);
 	for(int i = 0; i < s; i++){
 		data->push_back(d[i]);
 	}

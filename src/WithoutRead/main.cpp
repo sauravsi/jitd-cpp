@@ -12,8 +12,8 @@
 #include "getLine.h"
 #include "data.h"
 
-#define DATASEED 80
-#define QUERYSEED 44
+#define DATASEED 99
+#define QUERYSEED 76
 
 using namespace std;
 
