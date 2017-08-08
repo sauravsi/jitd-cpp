@@ -1,4 +1,4 @@
-policy crack 999
-insert 1 1 100 1000
-scan 100 1 100 3 0.0 0.0
+policy crack 15 splay read
+insert 1 1 10 100
+scan 100 1 10 3 0.2 0.8
 end

@@ -12,10 +12,10 @@ using namespace std;
 template <class T>
 sortedarrayNode<T>::sortedarrayNode( T* &d, int s)
 : cog(SORTED_ARRAY){
-	data = new vector<T>(s);
-	for(int i = 0; i < s; i++){
-		data->push_back(d[i]);
-	}
+	data = new vector<T>(d, d+s);
+	// for(int i = 0; i < s; i++){
+	// 	data->push_back(d[i]);
+	// }
 }
 
 template <class T>
