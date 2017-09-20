@@ -62,14 +62,18 @@ int main(int argc, char* argv[]) {
         hybridPolicy<int>* p = new hybridPolicy<int>(pls);
         jitd<int> myJitd(myTree->root, p);
         while(((arrayNode<int>*)*(myTree->pq.top()))->getSize()>crackThreshold){
-            myTree->crackLargest();
             clock::time_point start = clock::now();
+            myTree->crackLargest();
+            clock::time_point end = clock::now();
+            clock::duration execution_time = end - start;
+            unsigned long int cracking_time = chrono::duration_cast<chrono::nanoseconds>(execution_time).count();
+            start = clock::now();
             for (int i = 0; i < scanPerIter; ++i){
                 vector<int>* result = new vector<int>();
                 int v = generator.getRand();
                 myJitd.scan(myTree->root,v,v,*result);
             }
-            clock::time_point end = clock::now();
+            end = clock::now();
             clock::duration execution_time1 = end - start;
             start = clock::now();
             for (int i = 0; i < scanPerIter; ++i){
@@ -78,18 +82,22 @@ int main(int argc, char* argv[]) {
             }
             end = clock::now();
             clock::duration execution_time2 = end - start;
-            unsigned long int avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1).count())/scanPerIter;
-            cout << avg_runtime << endl;
+            unsigned long int avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
+            cout << cracking_time << '\t' << avg_runtime << endl;
         }
         while(myTree->pq.size()>0){
-            myTree->sortLargest();
             clock::time_point start = clock::now();
+            myTree->sortLargest();
+            clock::time_point end = clock::now();
+            clock::duration execution_time = end - start;
+            unsigned long int sorting_time = chrono::duration_cast<chrono::nanoseconds>(execution_time).count();
+            start = clock::now();
             for (int i = 0; i < scanPerIter; ++i){
                 vector<int>* result = new vector<int>();
                 int v = generator.getRand();
                 myJitd.scan(myTree->root,v,v,*result);
             }
-            clock::time_point end = clock::now();
+            end = clock::now();
             clock::duration execution_time1 = end - start;
             start = clock::now();
             for (int i = 0; i < scanPerIter; ++i){
@@ -98,8 +106,8 @@ int main(int argc, char* argv[]) {
             }
             end = clock::now();
             clock::duration execution_time2 = end - start;
-            unsigned long int avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1-execution_time2).count())/scanPerIter;
-            cout << avg_runtime << endl;
+            unsigned long int avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
+            cout << sorting_time << '\t' << avg_runtime << endl;
         }
         // do{
         //     cout << ((arrayNode<int>*)*(myTree->pq.top()))->getSize() << endl;
