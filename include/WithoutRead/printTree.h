@@ -5,4 +5,6 @@
 
 void printTree(cog* it,int depth);
 
+void printTreeInt(cog* it,int depth);
+
 #endif /* PRINTTREE_H_ */
