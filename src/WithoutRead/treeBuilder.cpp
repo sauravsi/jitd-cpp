@@ -63,10 +63,12 @@ int quick_select(vector<int> &input, int p, int r, int k)
 unsigned long int treeBuilder::crackLargest(){
 	using clock = std::chrono::steady_clock;
 	cog** node = pq.top();
+	pq.pop();
             
 	// CRACK
 	clock::time_point start = clock::now();
-	int key_index = quick_select<int>(*(((arrayNode<int>*)*node)->data),0,((arrayNode<int>*)*node)->data->size()-1,((arrayNode<int>*)*node)->data->size()/2);
+	int key_index = (rand()%((arrayNode<int>*)*node)->getSize());
+	// int key_index = quick_select<int>(*(((arrayNode<int>*)*node)->data),0,((arrayNode<int>*)*node)->data->size()-1,((arrayNode<int>*)*node)->data->size()/2);
 	int key = ((arrayNode<int>*)*node)->data->at(key_index);
 	vector<int>* left = new vector<int>();
 	vector<int>* right = new vector<int>();
@@ -82,15 +84,15 @@ unsigned long int treeBuilder::crackLargest(){
 		cog* l = new arrayNode<int>(*left);
 		cog* r = new arrayNode<int>(*right);
 		delete ((arrayNode<int>*)*node)->data;
-		delete (arrayNode<int>*)*node;
+		//delete (arrayNode<int>*)*node;
 		*node = new btreeNode<int>(key, l, r);
 		clock::time_point end = clock::now();
         clock::duration execution_time = end - start;
-        pq.pop();
 		pq.push(&(((btreeNode<int>*)*node)->left));
 		pq.push(&(((btreeNode<int>*)*node)->right));
 		return chrono::duration_cast<chrono::nanoseconds>(execution_time).count();
 	}
+	else return 0;
 }
 
 
@@ -100,7 +102,7 @@ unsigned long int treeBuilder::sortLargest(){
 	clock::time_point start = clock::now();
 	vector<int>* v = ((arrayNode<int>*)*node)->data;
 	sort(v->begin(), v->end());
-	delete (arrayNode<int>*)*node;
+	//delete (arrayNode<int>*)*node;
 	*node = new sortedarrayNode<int>(*v);
 	clock::time_point end = clock::now();
     clock::duration execution_time = end - start;
