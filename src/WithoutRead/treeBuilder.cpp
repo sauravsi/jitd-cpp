@@ -92,7 +92,10 @@ unsigned long int treeBuilder::crackLargest(){
 		pq.push(&(((btreeNode<int>*)*node)->right));
 		return chrono::duration_cast<chrono::nanoseconds>(execution_time).count();
 	}
-	else return 0;
+	else {
+		uncracked.push(node);
+		return 0;
+	}
 }
 
 

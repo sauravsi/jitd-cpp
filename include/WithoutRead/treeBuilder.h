@@ -20,6 +20,7 @@ class treeBuilder {
 	public:
 		cog* root;
 		priority_queue<cog**, vector<cog**>, Comp<int>> pq;
+		priority_queue<cog**, vector<cog**>, Comp<int>> uncracked;
 		treeBuilder(int seed, int min, int max, int n);
 		unsigned long int crackLargest();
 		unsigned long int sortLargest();

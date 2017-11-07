@@ -15,6 +15,7 @@
 #include "data.h"
 #include "printTree.h"
 #include "randUniform.h"
+#include "queryGenerator.h"
 
 #define DATASEED 99
 #define QUERYSEED 76
@@ -61,10 +62,13 @@ int main(int argc, char* argv[]) {
         vector<policy<int>* > pls;
         hybridPolicy<int>* p = new hybridPolicy<int>(pls);
         jitd<int> myJitd(myTree->root, p);
+        vector<tuple<int,int> > dataV = queryGenerator(QUERYSEED, scanPerIter, dataMin, dataMax, 1, 0.0 , 0.0);
         vector<int> v;
         for (int i = 0; i < scanPerIter; ++i){
-            v.push_back(generator.getRand());
+            v.push_back(get<0>(dataV[i]));
+            // cout << v[i] << ",";
         }
+        // cout << endl;
         clock::time_point start = clock::now();
         for (int i = 0; i < scanPerIter; ++i){
             vector<int>* result = new vector<int>();
@@ -79,8 +83,9 @@ int main(int argc, char* argv[]) {
         end = clock::now();
         clock::duration execution_time2 = end - start;
         unsigned long int avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
-        cout << "c\t" << 0 << '\t' << avg_runtime << endl;
+        cout << "c\t0\t" << 0 << '\t' << avg_runtime << endl;
         while(((arrayNode<int>*)*(myTree->pq.top()))->getSize()>crackThreshold){
+            int arrSize = ((arrayNode<int>*)*(myTree->pq.top()))->getSize();
             unsigned long int cracking_time = myTree->crackLargest();
             if(cracking_time > 0){
                 start = clock::now();
@@ -99,10 +104,16 @@ int main(int argc, char* argv[]) {
                 end = clock::now();
                 execution_time2 = end - start;
                 avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
-                cout << "c\t" << cracking_time << '\t' << avg_runtime << endl;
+                cout << "c\t" << arrSize << '\t' << cracking_time << '\t' << avg_runtime << endl;
             }
         }
+        while(myTree->uncracked.size()>0){
+            auto temp = myTree->uncracked.top();
+            myTree->pq.push(temp);
+            myTree->uncracked.pop();
+        }
         while(myTree->pq.size()>0){
+            int arrSize = ((arrayNode<int>*)*(myTree->pq.top()))->getSize();
             unsigned long int sorting_time = myTree->sortLargest();
             clock::time_point start = clock::now();
             for (int i = 0; i < scanPerIter; ++i){
@@ -120,7 +131,7 @@ int main(int argc, char* argv[]) {
             end = clock::now();
             clock::duration execution_time2 = end - start;
             unsigned long int avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
-            cout << "s\t" << sorting_time << '\t' << avg_runtime << endl;
+            cout << "s\t" << arrSize << '\t' << sorting_time << '\t' << avg_runtime << endl;
         }
         // do{
         //     cout << ((arrayNode<int>*)*(myTree->pq.top()))->getSize() << endl;
