@@ -84,37 +84,45 @@ int main(int argc, char* argv[]) {
         clock::duration execution_time2 = end - start;
         unsigned long int avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
         cout << "c\t0\t" << 0 << '\t' << avg_runtime << endl;
-        while(((arrayNode<int>*)*(myTree->pq.top()))->getSize()>crackThreshold){
-            int arrSize = ((arrayNode<int>*)*(myTree->pq.top()))->getSize();
-            unsigned long int cracking_time = myTree->crackLargest();
-            if(cracking_time > 0){
-                start = clock::now();
-                for (int i = 0; i < scanPerIter; ++i){
-                    vector<int>* result = new vector<int>();
-                    myJitd.scan(myTree->root,v[i],v[i],*result);
-                    delete result;
+        //while(((arrayNode<int>*)*(myTree->pq.top()))->getSize()>crackThreshold){
+        bool thresholdReached = false;
+        while(!thresholdReached){
+            int listSize = myTree->dfc.size();
+            for(int i = 0; i < listSize; i++){
+                int arrSize = ((arrayNode<int>*)*(myTree->dfc.front()))->getSize();
+                if(arrSize <= crackThreshold){
+                    thresholdReached = true;
                 }
-                end = clock::now();
-                execution_time1 = end - start;
-                start = clock::now();
-                for (int i = 0; i < scanPerIter; ++i){
-                    vector<int>* result = new vector<int>();
-                    delete result;
+                unsigned long int cracking_time = myTree->crackDepthFirst();
+                if(cracking_time > 0){
+                    start = clock::now();
+                    for (int i = 0; i < scanPerIter; ++i){
+                        vector<int>* result = new vector<int>();
+                        myJitd.scan(myTree->root,v[i],v[i],*result);
+                        delete result;
+                    }
+                    end = clock::now();
+                    execution_time1 = end - start;
+                    start = clock::now();
+                    for (int i = 0; i < scanPerIter; ++i){
+                        vector<int>* result = new vector<int>();
+                        delete result;
+                    }
+                    end = clock::now();
+                    execution_time2 = end - start;
+                    avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
+                    cout << "c\t" << arrSize << '\t' << cracking_time << '\t' << avg_runtime << endl;
                 }
-                end = clock::now();
-                execution_time2 = end - start;
-                avg_runtime = (chrono::duration_cast<chrono::nanoseconds>(execution_time1 - execution_time2).count())/scanPerIter;
-                cout << "c\t" << arrSize << '\t' << cracking_time << '\t' << avg_runtime << endl;
             }
         }
         while(myTree->uncracked.size()>0){
             auto temp = myTree->uncracked.top();
-            myTree->pq.push(temp);
+            myTree->dfc.push(temp);
             myTree->uncracked.pop();
         }
-        while(myTree->pq.size()>0){
-            int arrSize = ((arrayNode<int>*)*(myTree->pq.top()))->getSize();
-            unsigned long int sorting_time = myTree->sortLargest();
+        while(myTree->dfc.size()>0){
+            int arrSize = ((arrayNode<int>*)*(myTree->dfc.front()))->getSize();
+            unsigned long int sorting_time = myTree->sortDepthFirst();
             clock::time_point start = clock::now();
             for (int i = 0; i < scanPerIter; ++i){
                 vector<int>* result = new vector<int>();

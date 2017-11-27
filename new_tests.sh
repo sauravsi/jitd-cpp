@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "Running test1"
-./jitd_noread testscripts/costModel/test1 > output/costModel/result1
+echo "Skipping test1"
+#./jitd_noread testscripts/costModel/test1 > output/costModel/result1
 echo "Running test2"
 ./jitd_noread testscripts/costModel/test2 > output/costModel/result2
 echo "Running test3"

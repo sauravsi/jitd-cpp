@@ -1,0 +1,2 @@
+#!/bin/bash
+pythonw plotter.py uniform/result1 uniform/result2 uniform/result3 uniform/result4 uniform/result5 depthfirst/result1 depthfirst/result2 depthfirst/result3 depthfirst/result4 depthfirst/result5
