@@ -4,6 +4,6 @@
 #include "randUniform.h"
 #include "data.h"
 
-void dataGenerator(int seed, int min, int max, data d[], int length);
+void dataGenerator(int seed, int min, int max, int length, data d[], vector<pair<int,int> >* v);
 
 #endif /* DATAGENERATOR_H_ */

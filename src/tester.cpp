@@ -3,6 +3,7 @@
 #include <chrono>
 #include <vector>
 #include <tuple>
+#include <map>
 #include <iostream>
 
 #include "jitd.h"
@@ -20,7 +21,8 @@ void tester::insert(int queryCount, int dataSize, int dataMin, int dataMax){
 	for (int i = 0; i < queryCount; ++i){
 		data* list;
     	list = (data*)calloc(dataSize, sizeof(data));
-    	dataGenerator(i_seed, dataMin, dataMax, list, dataSize);
+    	vector<pair<int,int> > list2;
+    	dataGenerator(i_seed, dataMin, dataMax, dataSize, list, &list2);
 		using clock = std::chrono::steady_clock;
 		clock::time_point start = clock::now();
 		myJitd->insert(list, dataSize);
@@ -28,6 +30,16 @@ void tester::insert(int queryCount, int dataSize, int dataMin, int dataMax){
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
 		i_seed++;
+		// insert in other datastructures
+		
+		start = clock::now();
+		mapOfData.insert(list2.begin(), list2.end());
+		end = clock::now();
+		execution_time = end - start;
+		maptimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
+
+
+
 		// cout << "INSERT---------" << endl;
 		// printJitd();
 	}
@@ -45,8 +57,21 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 		clock::time_point end = clock::now();
 		clock::duration execution_time = end - start;
 		runtimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
-		cout << "SCAN----------" << endl;
-		printJitd();
+		//scan in other datastructures
+		vector<pair<int,int> >* result2 = new vector<pair<int,int> >;
+		start = clock::now();
+		for(map<int,int>::iterator it = mapOfData.find(get<0>(queries[i])); it != mapOfData.end() && it->first <= get<1>(queries[i]); it++){
+			result2->push_back(*it);
+		}
+		end = clock::now();
+		execution_time = end - start;
+		maptimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
+
+
+
+
+		// cout << "SCAN----------" << endl;
+		// printJitd();
 	}
 	s_seed++;
 }

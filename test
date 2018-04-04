@@ -1,2 +1,4 @@
-testbench 1 1000 10000 100 100
+policy crack 10 sort
+insert 1 1 1000 10000
+scan 1000 1 1000 3 0.0 0.0
 end

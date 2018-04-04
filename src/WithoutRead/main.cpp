@@ -162,8 +162,8 @@ int main(int argc, char* argv[]) {
     string insert("insert");
     string scan("scan");
     do{
-            line = getLine(ifile);
-            if(line[0].compare(insert) == 0){
+        line = getLine(ifile);
+        if(line[0].compare(insert) == 0){
             int queryCount = stoi(line[1]);
             int dataMin = stoi(line[2]);
             int dataMax = stoi(line[3]);
@@ -180,9 +180,9 @@ int main(int argc, char* argv[]) {
             myTester.scan(queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
         }
     } while(line[0].compare(end) != 0);    
-    cout << "RUNTIMES:" << endl << myTester.runtimes[0];
+    cout << "RUNTIMES:" << endl << myTester.runtimes[0] << "\t" << myTester.maptimes[0];
     for (int i = 1; i < myTester.runtimes.size(); ++i){
-        cout << endl << myTester.runtimes[i];
+        cout << endl << myTester.runtimes[i] << "\t" << myTester.maptimes[i];
     }
     cout << endl;
     // for (int i = 0; i < result.size(); ++i){
