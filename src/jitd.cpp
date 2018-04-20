@@ -21,9 +21,14 @@ cog* jitd<T>::getRoot(){
 	return root;
 }
 
+// template <class T>
+// policy<T>* jitd<T>::getPolicy(){
+// 	return p;
+// }
+
 template <class T>
 void jitd<T>::insert(T* &data, int size){
-	p->beforeInsert(root);
+	// p->beforeInsert(root);
 	vector<T>* dataArray = new vector<T>();
 	for(int i = 0; i < size; i++){
 		dataArray->push_back(*(data + i));
@@ -36,7 +41,7 @@ void jitd<T>::insert(T* &data, int size){
 		cog* concatnode = new concatNode(arraynode, root);
 		root = concatnode;
 	}
-	p->afterInsert(root);
+	// p->afterInsert(root);
 }
 
 template <class T>
@@ -46,14 +51,14 @@ void jitd<T>::scan(T low, T high, vector<T> &result){
 		low = high;
 		high = temp;
 	}
-	p->beforeRootIterator(root);
+	// p->beforeRootIterator(root);
 	scan(root, low, high, result);
 	return;
 }
 
 template <class T>
 void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
-	p->beforeIterator(node);
+	// p->beforeIterator(node);
 	switch(node->getType()){
 		case ARRAY:{
 					for(typename vector<T>::iterator it = ((arrayNode<T>*)node)->data->begin(); it != ((arrayNode<T>*)node)->data->end(); it++){
@@ -66,7 +71,7 @@ void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 					// 		result.push_back(((arrayNode<T>*)node)->data->at(i));
 					// 	}
 					// }
-					p->afterIterator(node);
+					// p->afterIterator(node);
 					return;
 				}
 		case SORTED_ARRAY:{
@@ -80,7 +85,7 @@ void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 							}
 						}
 					}
-					p->afterIterator(node);
+					// p->afterIterator(node);
 					return;
 				}
 		case BTREE:{
@@ -95,13 +100,13 @@ void jitd<T>::scan(cog* &node, T low, T high, vector<T> &result){
 					else{
 						scan(((btreeNode<T>*)node)->left, low, high, result);
 					}
-					p->afterIterator(node);
+					// p->afterIterator(node);
 					return;
 				}
 		case CONCAT:{
 					scan(((concatNode*)node)->left, low, high, result);
 					scan(((concatNode*)node)->right, low, high, result);
-					p->afterIterator(node);
+					// p->afterIterator(node);
 					return;
 				}
 	}

@@ -1,4 +1,4 @@
 policy crack 10 sort
 insert 1 1 1000 10000
-scan 1000 1 1000 3 0.0 0.0
+scanop 1000 1 1000 3 0.0 0.0 100
 end

@@ -36,12 +36,15 @@ int main(int argc, char* argv[]) {
     line = getLine(ifile);
     string pol("policy");
     string tb("testbench");
+    int crackT;
     if(line[0].compare(pol) == 0){
         string crack("crack");
         string sort("sort");
+
         for (int i = 1; i < line.size(); ++i) {
             if(line[i].compare(crack) == 0) {
                 int s = stoi(line[++i]);
+                crackT = s;
                 policy<data>* p1 = new crackPolicy<data>(s);
                 policies.push_back(p1);
             }
@@ -154,13 +157,14 @@ int main(int argc, char* argv[]) {
     else {
         return 0;
     }
+    
     hybridPolicy<data>* p = new hybridPolicy<data>(policies);
     jitd<data> myJitd(p);
     tester myTester(DATASEED, QUERYSEED, &myJitd);
     
     string end("end");
     string insert("insert");
-    string scan("scan");
+    string scanop("scanop");
     do{
         line = getLine(ifile);
         if(line[0].compare(insert) == 0){
@@ -170,19 +174,19 @@ int main(int argc, char* argv[]) {
             int dataSize = stoi(line[4]);
             myTester.insert(queryCount, dataSize, dataMin, dataMax);
         }
-        else if(line[0].compare(scan) == 0){
+        else if(line[0].compare(scanop) == 0){
             int queryCount = stoi(line[1]);
             int dataMin = stoi(line[2]);
             int dataMax = stoi(line[3]);
             int rangeSize = stoi(line[4]);
             double hhDataRange = stod(line[5]);
-            double hhProbability = stod(line[6]);    
-            myTester.scan(queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
+            double hhProbability = stod(line[6]); 
+            int opInterval = stoi(line[7]);
+            myTester.scan(queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability, opInterval, crackT);
         }
     } while(line[0].compare(end) != 0);    
-    cout << "RUNTIMES:" << endl << myTester.runtimes[0] << "\t" << myTester.maptimes[0];
-    for (int i = 1; i < myTester.runtimes.size(); ++i){
-        cout << endl << myTester.runtimes[i] << "\t" << myTester.maptimes[i];
+    for (int i = 1; i < myTester.opType.size(); ++i){
+        cout << myTester.opType[i] << '\t' << myTester.arraySizes[i] << '\t' << myTester.opTimes[i] << '\t' << myTester.scanTimes[i] << endl;
     }
     cout << endl;
     // for (int i = 0; i < result.size(); ++i){
