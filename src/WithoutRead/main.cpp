@@ -165,6 +165,7 @@ int main(int argc, char* argv[]) {
     string end("end");
     string insert("insert");
     string scanop("scanop");
+    int opInterval;
     do{
         line = getLine(ifile);
         if(line[0].compare(insert) == 0){
@@ -181,12 +182,18 @@ int main(int argc, char* argv[]) {
             int rangeSize = stoi(line[4]);
             double hhDataRange = stod(line[5]);
             double hhProbability = stod(line[6]); 
-            int opInterval = stoi(line[7]);
+            opInterval = stoi(line[7]);
             myTester.scan(queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability, opInterval, crackT);
         }
     } while(line[0].compare(end) != 0);    
-    for (int i = 1; i < myTester.opType.size(); ++i){
-        cout << myTester.opType[i] << '\t' << myTester.arraySizes[i] << '\t' << myTester.opTimes[i] << '\t' << myTester.scanTimes[i] << endl;
+    for (int i = 0; i < myTester.opType.size(); ++i){
+        cout << myTester.opType[i] << '\t' << myTester.arraySizes[i] << '\t' << myTester.opTimes[i];
+        if(i%opInterval == 0){
+            cout << '\t' << myTester.scanTimes[i/opInterval] << endl;
+        }
+        else {
+            cout << endl;
+        }
     }
     cout << endl;
     // for (int i = 0; i < result.size(); ++i){

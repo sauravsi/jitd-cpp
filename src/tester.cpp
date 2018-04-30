@@ -115,17 +115,16 @@ void tester::insert(int queryCount, int dataSize, int dataMin, int dataMax){
 		arraySizes.push_back(dataSize);
 		opTimes.push_back(chrono::duration_cast<chrono::nanoseconds>(execution_time).count());
 		i_seed++;
-		cog* myCog = myJitd->getRoot();
 		cog** newArray;
-		if(myCog->getType() == ARRAY){
-			newArray = &myCog;
+		if(myJitd->root->getType() == ARRAY){
+			newArray = &(myJitd->root);
 		}
-		else if(myCog->getType() == CONCAT){
-			newArray = &(((concatNode*)myCog)->left);
+		else if(myJitd->root->getType() == CONCAT){
+			newArray = &(((concatNode*)(myJitd->root))->left);
 		}
 		if(((cog*)*newArray)->getType() == ARRAY){
 			arrayCogs.push(newArray);
-			cout << "pq size updated:" << arrayCogs.size() << endl;
+			// cout << "pq size updated:" << arrayCogs.size() << endl;
 		}
 		// insert in other datastructures
 
@@ -138,7 +137,7 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 	vector<tuple<int,int> > queries = queryGenerator(s_seed, queryCount, dataMin, dataMax, rangeSize, hhDataRange, hhProbability);
 	int operationCounter = 0;
 	do{
-		cout << "pq size:" << arrayCogs.size() << endl;
+		// cout << "pq size:" << arrayCogs.size() << endl;
 		if(operationCounter%opInterval == 0){
 			operationCounter = 0;
 			unsigned long int totalScanTime = 0;
@@ -152,8 +151,10 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 				clock::time_point end = clock::now();
 				clock::duration execution_time = end - start;
 				totalScanTime+= chrono::duration_cast<chrono::nanoseconds>(execution_time).count();
+				delete result;
 			}
 			unsigned long int averageScanTime = totalScanTime/queries.size();
+			// cout << averageScanTime << endl;
 			scanTimes.push_back(averageScanTime);
 		}
 		// CRACK or SORT
@@ -176,11 +177,11 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 						cog** r = &(((btreeNode<data>*)*myCog)->right);
 						if(((cog*)*l)->getType() == ARRAY){
 							arrayCogs.push(l);
-							cout << "pq size updated:" << arrayCogs.size() << endl;
+							// cout << "pq size updated:" << arrayCogs.size() << endl;
 						}
 						if(((cog*)*r)->getType() == ARRAY){
 							arrayCogs.push(r);
-							cout << "pq size updated:" << arrayCogs.size() << endl;
+							// cout << "pq size updated:" << arrayCogs.size() << endl;
 						}
 						operationCounter++;
 						opType.push_back('c');
@@ -197,10 +198,10 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 		if(crackedArrayCogs.size() > 0){
 			using clock = std::chrono::steady_clock;
 			
-			cog** myCog = sortedArrayCogs.top();
-			sortedArrayCogs.pop();
-			if(((cog*)*myCog)->getType() == SORTED_ARRAY){
-				int myCogSize = ((sortedarrayNode<data>*)*myCog)->getSize();
+			cog** myCog = crackedArrayCogs.top();
+			crackedArrayCogs.pop();
+			if(((cog*)*myCog)->getType() == ARRAY){
+				int myCogSize = ((arrayNode<data>*)*myCog)->getSize();
 				
 				clock::time_point start = clock::now();
 				sortTransform(myCog);
@@ -223,5 +224,5 @@ void tester::scan(int queryCount, int dataMin, int dataMax, int rangeSize, doubl
 }
 
 void tester::printJitd(){
-	printTree(myJitd->getRoot(),0);
+	printTree(myJitd->root,0);
 }

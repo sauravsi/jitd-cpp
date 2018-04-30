@@ -1,4 +1,4 @@
-CC := g++ -w
+CC := g++ -g -w
 INC := include/
 SRC := src/
 BIN := bin/

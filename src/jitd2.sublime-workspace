@@ -1,0 +1,712 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"op",
+				"opInterval"
+			],
+			[
+				"SORT",
+				"SORTED_ARRAY"
+			],
+			[
+				"cra",
+				"crackThreshold"
+			],
+			[
+				"ope",
+				"operationCounter"
+			],
+			[
+				"new",
+				"newArray"
+			],
+			[
+				"my",
+				"myCog"
+			],
+			[
+				"so",
+				"sortedArrayCogs"
+			],
+			[
+				"get",
+				"getType"
+			],
+			[
+				"arra",
+				"arrayCog"
+			],
+			[
+				"crac",
+				"crackThreshold"
+			],
+			[
+				"arr",
+				"arrayCog"
+			],
+			[
+				"a",
+				"arrayCogs"
+			],
+			[
+				"da",
+				"dataSize"
+			],
+			[
+				"m",
+				"myTester"
+			],
+			[
+				"en",
+				"endl"
+			],
+			[
+				"co",
+				"compare"
+			],
+			[
+				"map",
+				"mapOfData"
+			],
+			[
+				"li",
+				"list2"
+			],
+			[
+				"f",
+				"findMaxN"
+			],
+			[
+				"sca",
+				"scanTimes"
+			],
+			[
+				"sc",
+				"scanTimes"
+			],
+			[
+				"o",
+				"opTimes"
+			],
+			[
+				"s",
+				"scanTimes2"
+			],
+			[
+				"T",
+				"TotalArea"
+			],
+			[
+				"ar",
+				"areaUnderCurve"
+			],
+			[
+				"c",
+				"crackedarraysizes"
+			],
+			[
+				"sor",
+				"sortedarraysizes"
+			],
+			[
+				"S",
+				"ScanUnsortedMultiplier"
+			],
+			[
+				"re",
+				"result3"
+			],
+			[
+				"res",
+				"result2"
+			],
+			[
+				"result",
+				"result1"
+			],
+			[
+				"push",
+				"push_back"
+			],
+			[
+				"que",
+				"queryGenerator"
+			],
+			[
+				"in",
+				"inFile"
+			],
+			[
+				"de",
+				"delete"
+			],
+			[
+				"cl",
+				"clock"
+			],
+			[
+				"ge",
+				"getRand"
+			],
+			[
+				"cr",
+				"cracking_time"
+			],
+			[
+				"st",
+				"stoi"
+			],
+			[
+				"printTreeI",
+				"printTreeInt"
+			],
+			[
+				"pr",
+				"printTree"
+			],
+			[
+				"l",
+				"left"
+			],
+			[
+				"key",
+				"key_index"
+			],
+			[
+				"q",
+				"qMin"
+			],
+			[
+				"no",
+				"nodeReadcount"
+			],
+			[
+				"print",
+				"printJitd"
+			],
+			[
+				"pri",
+				"printJitd"
+			],
+			[
+				"pt",
+				"printJitd"
+			],
+			[
+				"hh",
+				"hhProbability"
+			],
+			[
+				"data",
+				"dataMax"
+			],
+			[
+				"dataM",
+				"dataMin"
+			],
+			[
+				"quer",
+				"queries"
+			],
+			[
+				"qu",
+				"queries"
+			],
+			[
+				"scan",
+				"scan_seed"
+			],
+			[
+				"qM",
+				"qMin"
+			],
+			[
+				"query",
+				"queryCount"
+			],
+			[
+				"ran",
+				"randUniform"
+			],
+			[
+				"CC",
+				"CCINCLUDES"
+			],
+			[
+				"WOR",
+				"WORINCLUDES"
+			],
+			[
+				"bin",
+				"BIN"
+			],
+			[
+				"ji",
+				"jitd_nr"
+			],
+			[
+				"jit",
+				"jitd_r"
+			],
+			[
+				"WO",
+				"WOROBJECTS"
+			],
+			[
+				"TA",
+				"TARGET1"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"poli",
+				"policies"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"I",
+				"ITOA_H_"
+			],
+			[
+				"B",
+				"BTREE"
+			],
+			[
+				"getR",
+				"getRight"
+			],
+			[
+				"read",
+				"readcount"
+			],
+			[
+				"INC",
+				"INCLUDES"
+			],
+			[
+				"i",
+				"INC"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 359.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"sftp",
+				"Package Control: Satisfy Dependencies"
+			],
+			[
+				"pa",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"inst",
+				"Install Package Control"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp-2"
+	],
+	"file_history":
+	[
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithoutRead/main.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/tester.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/tester.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/sortPolicy.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/noreadWithoutSplay/heavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/noreadWithoutSplay/heavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/noreadWithoutSplay/uniformToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/noreadWithoutSplay/uniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/noreadWithoutSplay/heavyhitterToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/noreadWithoutSplay/heavyhitterToUniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/noreadWithoutSplay/uniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/noreadWithoutSplay/uniformToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/Makefile",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/estimate.py",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/estimateScanTime.py",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/jitd.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/jitd.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/policyTransforms.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/crackPolicy.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/plotter.py",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/scatter_plotter.py",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/test",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/noreadTests.sh",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/dataGenerator.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/dataGenerator.h",
+		"/Users/sauravsinghi/Desktop/jitd grammar draft",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/plotArea.py",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/queryGenerator.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/area4",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/area5",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/area1",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/uniformVsDepthfirst.sh",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithoutRead/treeBuilder.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/WithoutRead/treeBuilder.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/new_tests.sh",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/result5",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/estimate",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/uniformVsHH.sh",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/result1",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/test_result",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/test_result2",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/hh-crack-1,000,000",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/hh-crack-10,000,000",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/hh-crack-100,000,000",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/hh-crack-1,000,000,000",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/WithoutRead/cog.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/result2",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/result3",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/costModel/result4",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/costModel/test1",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/costModel/test2",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/costModel/test3",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/costModel/test4",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/costModel/test5",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithoutRead/Makefile",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/test_result",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/arrayNode.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithoutRead/cog.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/WithoutRead/printTree.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/crackPolicy.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/arrayNode.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithoutRead/printTree.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/data.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/data.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/result",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/sortedarrayNode.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithRead/main.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/noreadWithoutSplay/heavyhitterToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithoutSplay/uniformToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithoutSplay/heavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithoutSplay/heavyhitterToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithoutSplay/heavyhitterToUniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithoutSplay/uniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithoutSplay/uniformToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithSplay/heavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithSplay/heavyhitterToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithSplay/heavyhitterToUniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithSplay/uniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/readWithSplay/uniformToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithRead/printTree.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithRead/splayPolicy.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithSplay/heavyhitterToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithSplay/uniformToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithSplay/heavyhitterToUniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/sortedarrayNode.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithoutSplay/heavyhitterToUniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithoutSplay/uniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithoutSplay/heavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output/readWithSplay/uniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/binarySearch.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/runTests.sh",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/WithRead/readPolicy.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithRead/readPolicy.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/WithRead/splayPolicy.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/btreeNode.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/btreeNode.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/concatNode.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/concatNode.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/binarySearch.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/README",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/getLine.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/getLine.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/runTests",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/sftp-config.json",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/heavyhitterToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/heavyhitterToUniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/uniformToHeavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/uniform",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/testscripts/heavyhitter",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/output",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithRead/cog.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/hybridPolicy.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/WithRead/Makefile",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/randUniform.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/randUniform.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/queryGenerator.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/randNormal.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/itoa.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/policyTypes.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/main.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/cogWithoutRead/cog.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/cogWithRead/cog.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/cogWithRead/cog.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/splayPolicy.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/splayPolicy.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/printTree.h",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/src/cog.cpp",
+		"/Users/sauravsinghi/Documents/Work/jitd-cpp/include/cogWithoutRead.h"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			"/Users/sauravsinghi/Documents/Work/jitd-cpp/src",
+			"/Users/sauravsinghi/Documents/Work/jitd-cpp",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"new",
+			"scan",
+			"p->",
+			"scanTimes",
+			"queries",
+			"opType",
+			"arrayCogs.pop",
+			"arrayCogs.pop()",
+			"opType",
+			"cout",
+			"arrayCogs",
+			"operationCounter",
+			"cout",
+			"cp",
+			"dataGenerator",
+			"myJitd",
+			"ScanMultiplier",
+			"heavyhitter",
+			"0",
+			"dfc.t",
+			"pq",
+			" <<",
+			"<data>",
+			"data",
+			"node",
+			"<T>",
+			"key",
+			"999",
+			"vector<int> ",
+			"vector<data> ",
+			"vector<T> ",
+			"delete ",
+			"READCOUNT",
+			" data",
+			"(data",
+			",",
+			"<int>",
+			"OBJECTS",
+			"getKey()",
+			"new btreeNode",
+			"new btreeNode(",
+			"unsigned int",
+			"ifeq ($(NOREAD),defined)\nCCINCLUDES := $(WORINCLUDES)\nendif\n",
+			"setRead",
+			"getReadcount",
+			"scan(",
+			">>",
+			"getRight()",
+			"getLeft()",
+			"it",
+			"strcat",
+			"payload_len"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ScanUnsortedMultiplier",
+			"depthfirst",
+			"<int>",
+			"int",
+			"*node",
+			"<int>",
+			"((arrayNode<T>*)node)->data",
+			"( data",
+			"\\n",
+			"<data>",
+			"right",
+			"left",
+			"node"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 149.0
+	},
+	"pinned_build_system": "",
+	"project": "jitd2.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 222.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

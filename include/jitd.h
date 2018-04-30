@@ -9,12 +9,12 @@
 template <class T>
 class jitd {
 	private:
-		cog* root;
+		
 		policy<T>* p;
 	public:
+		cog* root;
 		jitd(policy<T>* pl);
 		jitd(cog* &r, policy<T>* pl);
-		cog* getRoot();
 		void insert(T* &data, int size);
 		void scan(T low, T high, vector<T> &result);
 		void scan(cog* &node, T low, T high, vector<T> &result);
